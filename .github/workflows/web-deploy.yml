@@ -53,3 +53,18 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+itch:
+    needs: export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.7.2
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: build/web
+      - name: Push to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: butler push build/web mysteriousjuice/ifsrjam2:html5
