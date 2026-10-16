@@ -54,7 +54,7 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-itch:
+  itch:
     needs: export
     runs-on: ubuntu-latest
     container:
