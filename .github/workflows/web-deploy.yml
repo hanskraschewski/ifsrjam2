@@ -30,8 +30,9 @@ jobs:
 
       - name: Export Web build
         run: |
-          mkdir -v -p build/web
-          godot --headless --verbose --export-release "Web" build/web/index.html
+          mkdir -v -p $GITHUB_WORKSPACE/build/web
+          godot --headless --verbose --path "$PROJECT_DIR" \
+            --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
 
       - uses: actions/upload-pages-artifact@v3
         with:
