@@ -9,6 +9,8 @@ const LANES: int = 6
 var current_lane: int = 0
 var switching_lane: bool = false
 
+# stunts
+var input_buffer = []
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -32,6 +34,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		@warning_ignore("integer_division")
 		if current_lane < (LANES - LANES / 2) - 1:
 			move(1)
+	if event.is_action_pressed("arrow_left"):
+		input_buffer.append(0)
+	if event.is_action_pressed("arrow_up"):
+		input_buffer.append(1)
+	if event.is_action_pressed("arrow_right"):
+		input_buffer.append(2)
+	if event.is_action_pressed("arrow_down"):
+		input_buffer.append(3)
 
 
 var wish_pos_x: float
@@ -58,6 +68,10 @@ func move(dir: int) -> void:
 
 func _on_block_detection_area_body_entered(body: Node2D) -> void:
 	if body is Block:
-		$AnimatedSprite2D.play("impact")
-		velocity.y = JUMP_VELOCITY
-		body.break_block()
+		if 1: #TODO: access blocks needed stunt sequence
+			$AnimatedSprite2D.play("impact")
+			velocity.y = 0
+			body.break_block()
+		else:
+			velocity.y = JUMP_VELOCITY
+	input_buffer.clear()

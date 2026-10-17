@@ -213,6 +213,6 @@ shape = SubResource("RectangleShape2D_15g6r")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_536hn")
 animation = &"rise"
-frame_progress = 0.86121386
+frame_progress = 0.61912733
 
 [connection signal="body_entered" from="BlockDetectionArea" to="." method="_on_block_detection_area_body_entered"]
