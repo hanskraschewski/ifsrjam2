@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ddfiles"
-run/main_scene="uid://cyuso0npqj6fd"
+run/main_scene="uid://docicevamdaon"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 
 [physics]
 
