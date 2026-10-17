@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://nwgo7lbj7j83"]
+
+[ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_umqkg"]
+[ext_resource type="Texture2D" uid="uid://fp8atpmevjou" path="res://assets/textures/Blocks/BaseBlock.png" id="2_7twhi"]
+[ext_resource type="Script" uid="uid://btalvspyh8nto" path="res://src/blocks/gold_block.gd" id="2_grthf"]
+[ext_resource type="Texture2D" uid="uid://bgfk0pddt55qd" path="res://assets/textures/Blocks/GoldBlock.png" id="2_rymb2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rymb2"]
+resource_local_to_scene = true
+atlas = ExtResource("2_rymb2")
+region = Rect2(110, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grthf"]
+resource_local_to_scene = true
+atlas = ExtResource("2_7twhi")
+region = Rect2(110, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nolt"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(2, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so71e"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(38, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okhbi"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(74, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ors7u"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(110, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_711es"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(74, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhak3"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(38, 2, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ryo"]
+atlas = ExtResource("2_rymb2")
+region = Rect2(2, 2, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15g6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nolt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so71e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okhbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ors7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_711es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhak3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ryo")
+}],
+"loop": 0,
+"name": &"blink",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoldBlock" unique_id=861528389 instance=ExtResource("1_umqkg")]
+script = ExtResource("2_grthf")
+
+[node name="BaseSprite" parent="." index="1" unique_id=224091359]
+visible = false
+texture = SubResource("AtlasTexture_rymb2")
+
+[node name="GrassSprite" parent="." index="2" unique_id=478690904]
+visible = false
+texture = SubResource("AtlasTexture_grthf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3" unique_id=1981392846]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_15g6r")
+animation = &"blink"
