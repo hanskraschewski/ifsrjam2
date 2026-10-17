@@ -40,6 +40,15 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.9197531)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="GDScript" id="GDScript_e0uga"]
+script/source = "extends CPUParticles2D
+
+
+
+func _on_finished() -> void:
+	queue_free()
+"
+
 [node name="Block" type="StaticBody2D" unique_id=861528389]
 script = ExtResource("1_lid8i")
 
@@ -76,3 +85,6 @@ scale_amount_min = 0.3
 scale_amount_max = 1.4
 scale_amount_curve = SubResource("Curve_jnxu3")
 color_ramp = SubResource("Gradient_2n5ut")
+script = SubResource("GDScript_e0uga")
+
+[connection signal="finished" from="BreakParticles" to="BreakParticles" method="_on_finished"]
