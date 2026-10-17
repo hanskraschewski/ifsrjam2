@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dc16do72bnq1r" path="res://assets/textures/Player/Tanuki.png" id="2_fdoq3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15g6r"]
-radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15g6r"]
-size = Vector2(30, 3)
+size = Vector2(20, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ua7x"]
 atlas = ExtResource("2_fdoq3")
