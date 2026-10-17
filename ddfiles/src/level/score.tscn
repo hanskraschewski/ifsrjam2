@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://l6rbod0sjf0g"]
+
+[ext_resource type="Script" uid="uid://cmqgpglivqp6t" path="res://src/score.gd" id="1_t1x8i"]
+[ext_resource type="FontFile" uid="uid://dtjfwelge1ixj" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="2_ceanc"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1579349007 node_paths=PackedStringArray("label")]
+script = ExtResource("1_t1x8i")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=624117262]
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.05
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+offset_transform_position = Vector2(-50, 30)
+theme_override_fonts/font = ExtResource("2_ceanc")
+text = "SCORE: 0"
+horizontal_alignment = 2
