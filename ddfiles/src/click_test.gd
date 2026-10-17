@@ -1,5 +1,10 @@
 extends Area2D
 
+@export
+var cam: Camera2D
+
+@export
+var score: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +19,6 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var cam = $".."
 			cam.add_shake()
+			score.increase_score(5000)
 			
