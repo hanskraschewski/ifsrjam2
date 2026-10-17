@@ -38,6 +38,7 @@ func _ready() -> void:
 
 
 func break_block() -> void:
+	get_tree().get_first_node_in_group("Camera").add_shake()
 	break_particles.restart()
 	break_particles.reparent(self.get_parent())
 	self.queue_free()

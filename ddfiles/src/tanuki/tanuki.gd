@@ -3,11 +3,17 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const LANES: int = 6
+#const LANES: int = 6
+
+
+@export var limit: float = 144.0
 
 
 var current_lane: int = 0
 var switching_lane: bool = false
+
+var prev_vel_x: float
+var vel_alpha: float = 0.3
 
 # stunts
 var input_buffer = []
@@ -18,22 +24,28 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("fall")
 		velocity += get_gravity() * delta
 	
-	velocity.x = 0.0
-	if (self.global_position.x as int - 16) % 32 != 0 and not switching_lane:
-		self.global_position.x = current_lane * 32 + 16
+	var direction := Input.get_axis("move_left", "move_right")
+	velocity.x = direction * SPEED * vel_alpha + (1.0 - vel_alpha) * prev_vel_x
+	
+	prev_vel_x = velocity.x
+	#velocity.x = 0.0
+	#if (self.global_position.x as int - 16) % 32 != 0 and not switching_lane:
+		#self.global_position.x = current_lane * 32 + 16
+	
+	self.global_position.x = clamp(self.global_position.x, -limit, limit)
 	
 	move_and_slide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_left"):
-		@warning_ignore("integer_division")
-		if current_lane >= -(LANES - LANES / 2) + 1:
-			move(-1)
-	if event.is_action_pressed("move_right"):
-		@warning_ignore("integer_division")
-		if current_lane < (LANES - LANES / 2) - 1:
-			move(1)
+	#if event.is_action_pressed("move_left"):
+		#@warning_ignore("integer_division")
+		#if current_lane >= -(LANES - LANES / 2) + 1:
+			#move(-1)
+	#if event.is_action_pressed("move_right"):
+		#@warning_ignore("integer_division")
+		#if current_lane < (LANES - LANES / 2) - 1:
+			#move(1)
 	if event.is_action_pressed("arrow_left"):
 		input_buffer.append(0)
 	if event.is_action_pressed("arrow_up"):
@@ -72,6 +84,7 @@ func _on_block_detection_area_body_entered(body: Node2D) -> void:
 			$AnimatedSprite2D.play("impact")
 			velocity.y = 0
 			body.break_block()
+			velocity.y = JUMP_VELOCITY
 		else:
 			velocity.y = JUMP_VELOCITY
 	input_buffer.clear()

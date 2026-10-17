@@ -15,6 +15,8 @@ func _ready() -> void:
 		for x: int in width:
 			if randf() < prob_block:
 				if randf() < prob_gold:
-					self.set_cell(Vector2i(x - 3, y), 0, Vector2i(0, 0), 2)
+					@warning_ignore("integer_division")
+					self.set_cell(Vector2i(x - width / 2, y), 0, Vector2i(0, 0), 2)
 				else:
-					self.set_cell(Vector2i(x - 3, y), 0, Vector2i(0, 0), 1)
+					@warning_ignore("integer_division")
+					self.set_cell(Vector2i(x - width / 2, y), 0, Vector2i(0, 0), 1)
