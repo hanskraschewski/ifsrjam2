@@ -13,6 +13,7 @@ var switching_lane: bool = false
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
+		$AnimatedSprite2D.play("fall")
 		velocity += get_gravity() * delta
 	
 	velocity.x = 0.0
@@ -57,5 +58,6 @@ func move(dir: int) -> void:
 
 func _on_block_detection_area_body_entered(body: Node2D) -> void:
 	if body is Block:
+		$AnimatedSprite2D.play("impact")
 		velocity.y = JUMP_VELOCITY
 		body.break_block()
