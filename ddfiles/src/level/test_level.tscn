@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://nwgo7lbj7j83" path="res://src/blocks/gold_block.tscn" id="2_5ipog"]
 [ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_bq0i6"]
 [ext_resource type="Script" uid="uid://2x86f1fv013m" path="res://src/level/block_map.gd" id="2_wfa51"]
+[ext_resource type="Script" uid="uid://dj6qbo38tmmoa" path="res://src/shake.gd" id="5_88en4"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mflhi"]
 scenes/1/scene = ExtResource("1_pcf1f")
@@ -18,14 +19,18 @@ sources/0 = SubResource("TileSetScenesCollectionSource_mflhi")
 [node name="BlockMap" type="TileMapLayer" parent="." unique_id=257629081]
 tile_set = SubResource("TileSet_15g6r")
 script = ExtResource("2_wfa51")
+depth = 1000
+width = 10
 prob_row = 0.8
-prob_block = 0.5
+prob_block = 0.295
+prob_gold = 0.015
 
 [node name="Tanuki" parent="." unique_id=1317343491 instance=ExtResource("2_bq0i6")]
 position = Vector2(16, -95)
 
-[node name="Camera2D" type="Camera2D" parent="Tanuki" unique_id=516488156]
+[node name="Camera2D" type="Camera2D" parent="Tanuki" unique_id=516488156 groups=["Camera"]]
 position = Vector2(-2, 97)
 limit_left = 0
 limit_right = 0
 position_smoothing_enabled = true
+script = ExtResource("5_88en4")
