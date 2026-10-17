@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2cv4xwn1lh0r" path="res://src/level/high_score.gd" id="1_hrsnh"]
 [ext_resource type="FontFile" uid="uid://dtjfwelge1ixj" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="1_tqe3r"]
+[ext_resource type="Script" uid="uid://dggf1hx6s3m7q" path="res://src/level/add_score_button.gd" id="3_nv5i8"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1960712073 node_paths=PackedStringArray("label")]
 script = ExtResource("1_hrsnh")
@@ -37,3 +38,32 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_tqe3r")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1441167446]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.325
+anchor_right = 0.5
+anchor_bottom = 0.325
+offset_left = -151.0
+offset_top = -4.0
+offset_right = 151.0
+offset_bottom = 35.799988
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Enter your name."
+
+[node name="Button" type="Button" parent="." unique_id=218832841]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.45
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Accept"
+script = ExtResource("3_nv5i8")
+
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
