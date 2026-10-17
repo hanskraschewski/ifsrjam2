@@ -3,6 +3,7 @@ extends CanvasLayer
 @export
 var label: Label
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_score()
