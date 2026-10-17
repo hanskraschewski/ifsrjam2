@@ -12,9 +12,7 @@ size = Vector2(104, 111)
 
 [node name="score" parent="." unique_id=1579349007 instance=ExtResource("1_y0d87")]
 
-[node name="Control" parent="Camera2D" unique_id=1895525853 instance=ExtResource("1_y0d87")]
-
-[node name="TestButton" type="Area2D" parent="Camera2D" unique_id=258993267]
+[node name="TestButton" type="Area2D" parent="." unique_id=258993267 node_paths=PackedStringArray("cam", "score")]
 script = ExtResource("2_y0d87")
 cam = NodePath("../Camera2D")
 score = NodePath("../score")
