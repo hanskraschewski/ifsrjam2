@@ -10,17 +10,19 @@ size = Vector2(104, 111)
 
 [node name="CameraShake" type="Node2D" unique_id=1839433231]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=157025614]
-script = ExtResource("1_bp8qf")
+[node name="score" parent="." unique_id=1579349007 instance=ExtResource("1_y0d87")]
 
-[node name="Control" parent="Camera2D" unique_id=1895525853 instance=ExtResource("1_y0d87")]
-
-[node name="TestButton" type="Area2D" parent="Camera2D" unique_id=258993267]
+[node name="TestButton" type="Area2D" parent="." unique_id=258993267 node_paths=PackedStringArray("cam", "score")]
 script = ExtResource("2_y0d87")
+cam = NodePath("../Camera2D")
+score = NodePath("../score")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/TestButton" unique_id=431857878]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestButton" unique_id=431857878]
 position = Vector2(-2, 0.5)
 shape = SubResource("RectangleShape2D_gf3bb")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/TestButton" unique_id=1716069334]
+[node name="Sprite2D" type="Sprite2D" parent="TestButton" unique_id=1716069334]
 texture = ExtResource("2_8ero2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=157025614]
+script = ExtResource("1_bp8qf")
