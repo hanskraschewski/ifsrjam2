@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c7qc5msjiu7kg"]
+
+[ext_resource type="Script" uid="uid://dhghskr2nekba" path="res://src/tanuki/tanuki.gd" id="1_w86g8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15g6r"]
+radius = 15.0
+
+[sub_resource type="Gradient" id="Gradient_ph2to"]
+colors = PackedColorArray(0.8328228, 0.16480651, 0.641761, 1, 0.5136423, 0.17276266, 0.57783896, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0hti2"]
+frequency = 0.1353
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15g6r"]
+width = 30
+height = 30
+noise = SubResource("FastNoiseLite_0hti2")
+color_ramp = SubResource("Gradient_ph2to")
+seamless = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15g6r"]
+size = Vector2(30, 3)
+
+[node name="Tanuki" type="CharacterBody2D" unique_id=1317343491]
+script = ExtResource("1_w86g8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1411687144]
+shape = SubResource("CapsuleShape2D_15g6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=932939295]
+texture_filter = 1
+texture = SubResource("NoiseTexture2D_15g6r")
+
+[node name="BlockDetectionArea" type="Area2D" parent="." unique_id=1738318136]
+position = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDetectionArea" unique_id=191563774]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_15g6r")
+
+[connection signal="body_entered" from="BlockDetectionArea" to="." method="_on_block_detection_area_body_entered"]

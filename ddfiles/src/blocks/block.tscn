@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ddy1by3r6xfna"]
+
+[ext_resource type="Script" uid="uid://btxl0nw0li5rx" path="res://src/blocks/block.gd" id="1_lid8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15g6r"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_ph2to"]
+colors = PackedColorArray(0.34046268, 0.18645379, 0.062058926, 1, 0.2842867, 0.4956327, 0.26533002, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0hti2"]
+frequency = 0.0933
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15g6r"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_0hti2")
+color_ramp = SubResource("Gradient_ph2to")
+seamless = true
+
+[node name="Block" type="StaticBody2D" unique_id=861528389]
+script = ExtResource("1_lid8i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1374159385]
+shape = SubResource("RectangleShape2D_15g6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=224091359]
+texture_filter = 1
+texture = SubResource("NoiseTexture2D_15g6r")
