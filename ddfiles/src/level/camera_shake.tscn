@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d26y1jxvf7y4v"]
+
+[ext_resource type="Script" uid="uid://dj6qbo38tmmoa" path="res://src/level/shake.gd" id="1_bp8qf"]
+[ext_resource type="Texture2D" uid="uid://dm35gn1lrqlgb" path="res://icon.svg" id="2_8ero2"]
+[ext_resource type="Script" uid="uid://bixfe3fc66u7h" path="res://src/level/click_test.gd" id="2_y0d87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf3bb"]
+size = Vector2(104, 111)
+
+[node name="CameraShake" type="Node2D" unique_id=1839433231]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=157025614]
+script = ExtResource("1_bp8qf")
+
+[node name="TestButton" type="Area2D" parent="Camera2D" unique_id=258993267]
+script = ExtResource("2_y0d87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/TestButton" unique_id=431857878]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_gf3bb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/TestButton" unique_id=1716069334]
+texture = ExtResource("2_8ero2")
