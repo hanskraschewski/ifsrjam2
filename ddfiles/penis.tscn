@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://x24fwp8723yc"]
+
+[ext_resource type="Texture2D" uid="uid://dm35gn1lrqlgb" path="res://icon.svg" id="1_artt7"]
+[ext_resource type="Script" uid="uid://dcodd8308vrxd" path="res://penis.gd" id="1_hyvq2"]
+[ext_resource type="Texture2D" uid="uid://ddx181grsx4ys" path="res://src/penis.png" id="2_j2l3e"]
+[ext_resource type="Script" uid="uid://us8kl7md785c" path="res://sprite_2d.gd" id="4_w8b3y"]
+
+[sub_resource type="Curve" id="Curve_gf3bb"]
+_data = [Vector2(0.024213068, 0.9813334), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk404"]
+size = Vector2(130, 127)
+
+[node name="Node2D" type="Node2D" unique_id=1224316568]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=81582327 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_hyvq2")
+particles = NodePath("CPUParticles2D")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D" unique_id=508763486]
+position = Vector2(641, 338)
+emitting = false
+amount = 15
+texture = ExtResource("2_j2l3e")
+lifetime = 0.3
+one_shot = true
+randomness = 0.4
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 337.9
+initial_velocity_max = 892.1
+angular_velocity_min = -118.8
+angular_velocity_max = 209.97
+damping_max = 60.731
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_gf3bb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1931405212]
+position = Vector2(644, 336)
+shape = SubResource("RectangleShape2D_pk404")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1676880466]
+texture = ExtResource("1_artt7")
+script = ExtResource("4_w8b3y")
+
+[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="Area2D" method="_on_mouse_exited"]
