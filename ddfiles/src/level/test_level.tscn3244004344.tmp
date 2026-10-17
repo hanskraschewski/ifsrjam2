@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dnm5trwu856p5"]
+
+[ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_pcf1f"]
+[ext_resource type="PackedScene" uid="uid://nwgo7lbj7j83" path="res://src/blocks/gold_block.tscn" id="2_5ipog"]
+[ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_bq0i6"]
+[ext_resource type="Script" uid="uid://2x86f1fv013m" path="res://src/level/block_map.gd" id="2_wfa51"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mflhi"]
+scenes/1/scene = ExtResource("1_pcf1f")
+scenes/2/scene = ExtResource("2_5ipog")
+
+[sub_resource type="TileSet" id="TileSet_15g6r"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_mflhi")
+
+[node name="TestLevel" type="Node2D" unique_id=1882760823]
+
+[node name="BlockMap" type="TileMapLayer" parent="." unique_id=257629081]
+tile_set = SubResource("TileSet_15g6r")
+script = ExtResource("2_wfa51")
+prob_row = 0.8
+prob_block = 0.5
+
+[node name="Tanuki" parent="." unique_id=1317343491 instance=ExtResource("2_bq0i6")]
+position = Vector2(16, -95)
+
+[node name="Camera2D" type="Camera2D" parent="Tanuki" unique_id=516488156]
+position = Vector2(-2, 97)
+limit_left = 0
+limit_right = 0
+position_smoothing_enabled = true

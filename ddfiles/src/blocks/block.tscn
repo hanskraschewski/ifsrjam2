@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btxl0nw0li5rx" path="res://src/blocks/block.gd" id="1_lid8i"]
 [ext_resource type="Texture2D" uid="uid://fp8atpmevjou" path="res://assets/textures/Blocks/BaseBlock.png" id="2_tmgon"]
+[ext_resource type="PackedScene" uid="uid://de020otqku5i1" path="res://src/blocks/combo_arrow.tscn" id="3_f1njt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15g6r"]
 size = Vector2(32, 32)
@@ -31,3 +32,15 @@ texture = SubResource("AtlasTexture_wfa51")
 unique_name_in_owner = true
 texture_filter = 1
 texture = SubResource("AtlasTexture_15g6r")
+
+[node name="ComboArrow" parent="." unique_id=876144137 instance=ExtResource("3_f1njt")]
+position = Vector2(-8, -8)
+
+[node name="ComboArrow2" parent="." unique_id=1793071864 instance=ExtResource("3_f1njt")]
+position = Vector2(8, -8)
+
+[node name="ComboArrow3" parent="." unique_id=1508763657 instance=ExtResource("3_f1njt")]
+position = Vector2(-8, 8)
+
+[node name="ComboArrow4" parent="." unique_id=1315749823 instance=ExtResource("3_f1njt")]
+position = Vector2(8, 7)

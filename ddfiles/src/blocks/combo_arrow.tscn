@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://de020otqku5i1"]
+
+[ext_resource type="Texture2D" uid="uid://kcu26l275ot6" path="res://assets/textures/InGameUI/ComboArrow.png" id="1_mmmxt"]
+[ext_resource type="Script" uid="uid://4xtvr330e7av" path="res://src/blocks/combo_arrow.gd" id="1_ou8lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_536hn"]
+atlas = ExtResource("1_mmmxt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou8lw"]
+atlas = ExtResource("1_mmmxt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qywum"]
+atlas = ExtResource("1_mmmxt")
+region = Rect2(64, 0, 32, 32)
+
+[node name="ComboArrow" type="Node2D" unique_id=876144137]
+visible = false
+script = ExtResource("1_ou8lw")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=2134506769]
+texture_filter = 1
+texture = SubResource("AtlasTexture_536hn")
+
+[node name="DoneArrow" type="Sprite2D" parent="." unique_id=1889526001]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_ou8lw")
+
+[node name="BrokenArrow" type="Sprite2D" parent="." unique_id=1008354593]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_qywum")
