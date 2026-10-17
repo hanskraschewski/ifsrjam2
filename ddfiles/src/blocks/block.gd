@@ -12,6 +12,7 @@ extends StaticBody2D
 
 @onready var base_sprite: Sprite2D = %BaseSprite
 @onready var grass_sprite: Sprite2D = %GrassSprite
+@onready var break_particles: CPUParticles2D = %BreakParticles
 
 
 func _ready() -> void:
@@ -37,4 +38,8 @@ func _ready() -> void:
 
 
 func break_block() -> void:
+	break_particles.restart()
+	break_particles.reparent(self.get_parent())
 	self.queue_free()
+	await break_particles.finished
+	break_particles.queue_free()
