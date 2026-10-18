@@ -11,6 +11,8 @@ extends CanvasLayer
 @onready var balls_up_label: Label = %BallsUPLabel
 @onready var tnt_up_label: Label = %TntUpLabel
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 
 
 func show_death_screen() -> void:
@@ -22,7 +24,7 @@ func show_death_screen() -> void:
 
 
 func show_shop() -> void:
-	shop.show()
+	animation_player.play("show_shop")
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -36,7 +38,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _on_return_button_pressed() -> void:
+	animation_player.play_backwards("show_shop")
+	await animation_player.animation_finished
 	shop.hide()
+	Globals.player.dead = false
 
 
 func _on_tnt_up_button_pressed() -> void:

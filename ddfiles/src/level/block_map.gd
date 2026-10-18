@@ -28,6 +28,8 @@ func _ready() -> void:
 
 
 func generate_level() -> void:
+	self.clear()
+	
 	for y: int in depth:
 		if randf() > prob_row:
 			continue
