@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dhghskr2nekba" path="res://src/tanuki/tanuki.gd" id="1_w86g8"]
 [ext_resource type="Texture2D" uid="uid://dc16do72bnq1r" path="res://assets/textures/Player/Tanuki.png" id="2_fdoq3"]
+[ext_resource type="AudioStream" uid="uid://cxtcxy8qgok3u" path="res://assets/audio/sfx/squeek1.wav" id="3_v1qrp"]
+[ext_resource type="AudioStream" uid="uid://befs0gv6vkalt" path="res://assets/audio/sfx/squeek2.wav" id="4_7lywl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15g6r"]
 
@@ -172,6 +174,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_536hn"]
 size = Vector2(20, 3)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_15g6r"]
+streams_count = 2
+stream_0/stream = ExtResource("3_v1qrp")
+stream_1/stream = ExtResource("4_7lywl")
+
 [node name="Tanuki" type="CharacterBody2D" unique_id=1317343491]
 script = ExtResource("1_w86g8")
 
@@ -196,6 +203,10 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadbuttArea" unique_id=596767506]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_536hn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1403910656]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_15g6r")
 
 [connection signal="body_entered" from="BlockDetectionArea" to="." method="_on_block_detection_area_body_entered"]
 [connection signal="body_entered" from="HeadbuttArea" to="." method="_on_headbutt_area_body_entered"]
