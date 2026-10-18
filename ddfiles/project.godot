@@ -30,6 +30,12 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://src/globals/": "red"
+}
+
 [global_group]
 
 Camera=""
