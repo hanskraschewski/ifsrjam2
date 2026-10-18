@@ -11,7 +11,7 @@ var handle_position: Vector2 = %Handle.position
 
 # Called when the node enters the scene tree fior the first time.
 func _ready() -> void:
-	pass
+	clamp(%Handle.position.y, handle_position.y - 50, handle_position.y)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,7 +48,6 @@ func remove_gold(amount: int) -> bool:
 	for i in amount:
 		#TODO: play sound
 		$NuggetContainer.get_child(i).queue_free()
-		await get_tree().create_timer(0.1).timeout
 	current_gold = net_worth - amount
 	return true
 

@@ -9,20 +9,20 @@
 atlas = ExtResource("3_ctxw3")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0dh1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2b56"]
 resource_local_to_scene = true
 atlas = ExtResource("2_q0dh1")
 region = Rect2(110, 2, 32, 32)
 
-[sub_resource type="Gradient" id="Gradient_dugxr"]
+[sub_resource type="Gradient" id="Gradient_xjxsk"]
 resource_local_to_scene = true
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5060241, 1)
 colors = PackedColorArray(0.16078432, 0.19215687, 0.30980393, 1, 0.27058825, 0.30588236, 0.42745098, 1, 0.27058825, 0.30588236, 0.42745098, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xf31r"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pj6s8"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_dugxr")
+gradient = SubResource("Gradient_xjxsk")
 width = 8
 height = 8
 fill = 1
@@ -213,10 +213,10 @@ texture = SubResource("AtlasTexture_68lym")
 
 [node name="GrassSprite" parent="." index="2" unique_id=478690904]
 visible = false
-texture = SubResource("AtlasTexture_q0dh1")
+texture = SubResource("AtlasTexture_k2b56")
 
 [node name="BreakParticles" parent="." index="3" unique_id=783161819]
-texture = SubResource("GradientTexture2D_xf31r")
+texture = SubResource("GradientTexture2D_pj6s8")
 
 [node name="ExplosionArea" type="Area2D" parent="." index="4" unique_id=132036440]
 unique_name_in_owner = true

@@ -42,5 +42,3 @@ func break_block() -> void:
 	break_particles.restart()
 	break_particles.reparent(self.get_parent())
 	self.queue_free()
-	await break_particles.finished
-	break_particles.queue_free()

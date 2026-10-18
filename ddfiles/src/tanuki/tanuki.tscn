@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dc16do72bnq1r" path="res://assets/textures/Player/Tanuki.png" id="2_fdoq3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15g6r"]
+radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15g6r"]
 size = Vector2(20, 3)
@@ -114,7 +115,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4jssw")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -195,6 +196,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_536hn"]
+size = Vector2(22.5, 3)
+
 [node name="Tanuki" type="CharacterBody2D" unique_id=1317343491]
 script = ExtResource("1_w86g8")
 
@@ -209,9 +213,16 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_15g6r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=764317308]
+unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_536hn")
-animation = &"rise"
-frame_progress = 0.61912733
+animation = &"death"
+
+[node name="HeadbuttArea" type="Area2D" parent="." unique_id=758106142]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadbuttArea" unique_id=596767506]
+position = Vector2(0.25, -14)
+shape = SubResource("RectangleShape2D_536hn")
 
 [connection signal="body_entered" from="BlockDetectionArea" to="." method="_on_block_detection_area_body_entered"]
+[connection signal="body_entered" from="HeadbuttArea" to="." method="_on_headbutt_area_body_entered"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b01msa4tltvqo"]
+
+[ext_resource type="Script" uid="uid://cxm0mcktd42bj" path="res://src/globals/game_manager.gd" id="1_7xgsd"]
+[ext_resource type="PackedScene" uid="uid://dnm5trwu856p5" path="res://src/level/test_level.tscn" id="2_tn2tj"]
+
+[node name="GameManager" type="Node" unique_id=1059624644 groups=["GM"]]
+script = ExtResource("1_7xgsd")
+
+[node name="TestLevel" parent="." unique_id=1882760823 instance=ExtResource("2_tn2tj")]
+unique_name_in_owner = true

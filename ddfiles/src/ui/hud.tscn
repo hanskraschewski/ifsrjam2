@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bawflfjti2oar"]
+
+[ext_resource type="Script" uid="uid://dxwnb3igc3aoq" path="res://src/ui/hud.gd" id="1_4rn03"]
+[ext_resource type="Texture2D" uid="uid://c45egyorbison" path="res://assets/textures/InGameUI/GameOverScreen.png" id="1_eqvli"]
+
+[node name="Hud" type="CanvasLayer" unique_id=885183066]
+script = ExtResource("1_4rn03")
+
+[node name="DeathScreen" type="TextureRect" parent="." unique_id=2098464539]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eqvli")

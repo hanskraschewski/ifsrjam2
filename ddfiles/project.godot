@@ -33,12 +33,18 @@ enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://src/globals/": "red"
+"res://assets/": "green",
+"res://src/": "gray",
+"res://src/blocks/": "yellow",
+"res://src/globals/": "red",
+"res://src/tanuki/": "pink",
+"res://src/ui/": "blue"
 }
 
 [global_group]
 
 Camera=""
+GM=""
 
 [input]
 
