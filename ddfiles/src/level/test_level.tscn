@@ -60,6 +60,7 @@ width = 10
 prob_row = 0.8
 prob_block = 0.295
 prob_gold = 0.015
+prob_mw_enemy = 0.02
 
 [node name="Tanuki" parent="." unique_id=1317343491 instance=ExtResource("2_bq0i6")]
 position = Vector2(0, -64)
