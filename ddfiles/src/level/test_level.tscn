@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnm5trwu856p5"]
 
-[ext_resource type="Script" uid="uid://bfy53caqtwgag" path="res://src/level/cam.gd" id="1_go26d"]
 [ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_pcf1f"]
+[ext_resource type="Script" uid="uid://bpo2a2nps1o4r" path="res://src/level/color_rect.gd" id="1_tfvns"]
 [ext_resource type="PackedScene" uid="uid://nwgo7lbj7j83" path="res://src/blocks/gold_block.tscn" id="2_5ipog"]
 [ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_bq0i6"]
 [ext_resource type="Texture2D" uid="uid://dg3s8w3a5yvbq" path="res://assets/textures/InGameUI/TunnelOpening.png" id="2_tfvns"]
@@ -26,8 +26,17 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_mflhi")
 
 [node name="TestLevel" type="Node2D" unique_id=1882760823]
+
 [node name="Background" type="Node2D" parent="." unique_id=1221151364]
 texture_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1431054083]
+offset_left = -332.0
+offset_top = -221.0
+offset_right = 329.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_tfvns")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=168007276]
 texture_filter = 1
