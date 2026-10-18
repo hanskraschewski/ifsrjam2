@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 
 
 @export var limit: float = 144.0
-
+@export var explosion_impact_on_player: float = 600.0
 
 var current_lane: int = 0
 var switching_lane: bool = false
@@ -82,17 +82,35 @@ func move(dir: int) -> void:
 
 
 func _on_block_detection_area_body_entered(body: Node2D) -> void:
-	if body is Block and body is not SkullBlock:
+	if body is ExplosiveBlock:
+		$AnimatedSprite2D.play("impact")
+		velocity.y = 0
+		body.break_block()
+		velocity = explosion_impact_on_player * (global_position - body.global_position).normalized()
+		return
+	if body is SkullBlock:
+		velocity.y = JUMP_VELOCITY
+		return
+	if body is SpikeBlock:
+		#:TODO: damage player
+		velocity.y = JUMP_VELOCITY
+		return
+	if body is Block:
 		$AnimatedSprite2D.play("impact")
 		velocity.y = 0
 		body.break_block()
 		velocity.y = JUMP_VELOCITY
-	else:
-		velocity.y = JUMP_VELOCITY
+
 
 
 func _on_headbutt_area_body_entered(body: Node2D) -> void:
-	if body is SkullBlock or body is ExplosiveBlock:
+	if body is ExplosiveBlock:
+		$AnimatedSprite2D.play("impact")
+		velocity.y = 0
+		body.break_block()
+		velocity = explosion_impact_on_player * (global_position - body.global_position).normalized()
+		return
+	if body is SkullBlock or body is SpikeBlock:
 		$AnimatedSprite2D.play("impact")
 		velocity.y = 0
 		body.break_block()

@@ -16,3 +16,5 @@ func _on_timer_timeout() -> void:
 		$AnimatedSprite2D.play("blink")
 	else:
 		$AnimatedSprite2D.play("eye_roll")
+	$Timer.wait_time = randf_range(3.0, 15.0)
+	$Timer.start()
