@@ -13,20 +13,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	player_dir = get_player_pos() - position
+	player_dir = get_player_pos() - self.global_position
 	if player_dir.length() < range:
-		position = position + player_dir / player_dir.length() * move_speed * delta
+		self.global_position = self.global_position + player_dir / player_dir.length() * move_speed * delta
+
 
 func get_player_pos() -> Vector2:
-	return Globals.player.position
-	
+	return Globals.player.global_position
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Block:
-		if 1: #TODO: access blocks needed stunt sequence
-			body.break_block()
-			
-			
-	if body is CharacterBody2D:
+		body.break_block()
+	elif body is CharacterBody2D:
 		Globals.player.die()
