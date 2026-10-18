@@ -92,7 +92,6 @@ func _on_block_detection_area_body_entered(body: Node2D) -> void:
 	if dead: return
 	if body is ExplosiveBlock:
 		animated_sprite.play("impact")
-		velocity.y = 0
 		body.break_block()
 		velocity = explosion_impact_on_player * (global_position - body.global_position).normalized()
 		return
@@ -105,6 +104,8 @@ func _on_block_detection_area_body_entered(body: Node2D) -> void:
 		return
 	if body is Block:
 		animated_sprite.play("impact")
+		body.break_block()
+		velocity.y = JUMP_VELOCITY
 
 
 
