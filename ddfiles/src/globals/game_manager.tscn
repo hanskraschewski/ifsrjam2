@@ -11,3 +11,4 @@ script = ExtResource("1_7xgsd")
 unique_name_in_owner = true
 
 [node name="Hud" parent="." unique_id=885183066 instance=ExtResource("3_tn2tj")]
+unique_name_in_owner = true

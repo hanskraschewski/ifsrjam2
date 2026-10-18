@@ -46,6 +46,7 @@ folder_colors={
 Camera=""
 GM=""
 HUD=""
+BlockMap=""
 
 [input]
 

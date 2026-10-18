@@ -5,6 +5,9 @@ var level: PackedScene = preload("res://src/level/test_level.tscn")
 var game_paused: bool = true
 
 
+@onready var hud: CanvasLayer = %Hud
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not game_paused:
 		return
@@ -18,3 +21,4 @@ func restart() -> void:
 	self.add_child(level.instantiate())
 	
 	Globals.player.global_position = Vector2(0.0, -64.0)
+	hud.show_shop()
