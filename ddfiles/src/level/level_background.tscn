@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj6rolt2x7sgg" path="res://assets/textures/level/Wall.png" id="4_p7rar"]
 
 [node name="level" type="Node2D" unique_id=786614293]
+texture_filter = 1
 
 [node name="layer1" type="Node2D" parent="." unique_id=576461274]
 

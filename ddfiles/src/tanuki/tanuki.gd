@@ -22,10 +22,12 @@ var input_buffer = []
 
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
 
 
 func _ready() -> void:
 	Globals.player = self
+
 
 func _physics_process(delta: float) -> void:
 	if dead: return
@@ -126,6 +128,7 @@ func _on_headbutt_area_body_entered(body: Node2D) -> void:
 
 func die() -> void:
 	dead = true
+	audio_stream_player_2d.play()
 	animated_sprite.play("death")
 	await animated_sprite.animation_finished
 	get_tree().get_first_node_in_group("HUD").show_death_screen()
