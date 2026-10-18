@@ -9,6 +9,8 @@ const JUMP_VELOCITY = -400.0
 @export var limit: float = 144.0
 @export var explosion_impact_on_player: float = 600.0
 
+var dead: bool = false
+
 var current_lane: int = 0
 var switching_lane: bool = false
 
@@ -18,13 +20,18 @@ var vel_alpha: float = 0.3
 # stunts
 var input_buffer = []
 
+
+@onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
+
+
 func _ready() -> void:
 	Globals.player = self
 
 func _physics_process(delta: float) -> void:
+	if dead: return
 	# Add the gravity.
 	if not is_on_floor():
-		$AnimatedSprite2D.play("fall")
+		animated_sprite.play("fall")
 		velocity += get_gravity() * delta
 	
 	var direction := Input.get_axis("move_left", "move_right")
@@ -82,9 +89,9 @@ func move(dir: int) -> void:
 
 
 func _on_block_detection_area_body_entered(body: Node2D) -> void:
+	if dead: return
 	if body is ExplosiveBlock:
-		$AnimatedSprite2D.play("impact")
-		velocity.y = 0
+		animated_sprite.play("impact")
 		body.break_block()
 		velocity = explosion_impact_on_player * (global_position - body.global_position).normalized()
 		return
@@ -96,22 +103,29 @@ func _on_block_detection_area_body_entered(body: Node2D) -> void:
 		velocity.y = JUMP_VELOCITY
 		return
 	if body is Block:
-		$AnimatedSprite2D.play("impact")
-		velocity.y = 0
+		animated_sprite.play("impact")
 		body.break_block()
 		velocity.y = JUMP_VELOCITY
 
 
 
 func _on_headbutt_area_body_entered(body: Node2D) -> void:
+	if dead: return
 	if body is ExplosiveBlock:
-		$AnimatedSprite2D.play("impact")
+		animated_sprite.play("impact")
 		velocity.y = 0
 		body.break_block()
 		velocity = explosion_impact_on_player * (global_position - body.global_position).normalized()
 		return
 	if body is SkullBlock or body is SpikeBlock:
-		$AnimatedSprite2D.play("impact")
+		animated_sprite.play("impact")
 		velocity.y = 0
 		body.break_block()
 		velocity.y = -JUMP_VELOCITY
+
+
+func die() -> void:
+	dead = true
+	animated_sprite.play("death")
+	await animated_sprite.animation_finished
+	get_tree().get_first_node_in_group("GM").restart()
