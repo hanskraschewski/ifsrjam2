@@ -1,10 +1,15 @@
 extends CanvasLayer
 
 var showing: bool = false
+var lofi: bool = false
+var foxus: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$".".hide()
+	$MusicPlayer.playing = true
+	$LofiPlayer.playing = false
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,3 +46,26 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_return_button_pressed() -> void:
 	$".".hide()
 	get_tree().paused = false
+
+
+func _on_focus_mode_checkbox_toggled(toggled_on: bool) -> void:
+	if %FocusModeCheckbox.button_pressed:
+		#TODO: show focus gameplay
+		pass
+	else:	
+		#TODO: hide focus gameplay
+		pass
+
+
+
+func _on_lofi_mode_checkbox_toggled(toggled_on: bool) -> void:
+	$MusicPlayer.playing = !%LofiModeCheckbox.button_pressed
+	$LofiPlayer.playing = %LofiModeCheckbox.button_pressed
+
+
+func _on_music_player_finished() -> void:
+	$MusicPlayer.stream_paused = false
+
+
+func _on_lofi_player_finished() -> void:
+	$LofiPlayer.stream_paused = false

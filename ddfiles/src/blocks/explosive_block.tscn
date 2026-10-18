@@ -4,25 +4,30 @@
 [ext_resource type="Script" uid="uid://dw5atlqie3owk" path="res://src/blocks/explosive_block.gd" id="2_ctxw3"]
 [ext_resource type="Texture2D" uid="uid://fp8atpmevjou" path="res://assets/textures/Blocks/BaseBlock.png" id="2_q0dh1"]
 [ext_resource type="Texture2D" uid="uid://bwn6w5xuvm0kf" path="res://assets/textures/Blocks/tnt.png" id="3_ctxw3"]
+[ext_resource type="AudioStream" uid="uid://cagl64ml64txg" path="res://assets/audio/sfx/dragon-studio-explosion-with-debris-494320.mp3" id="5_ydx8i"]
+[ext_resource type="AudioStream" uid="uid://ri5cfj3xroyq" path="res://assets/audio/sfx/freesound_community-8-bit-explosion-95847.mp3" id="6_k2b56"]
+[ext_resource type="AudioStream" uid="uid://dvn1wqrtvp5bg" path="res://assets/audio/sfx/soundreality-explosion-fx-343683.mp3" id="7_xjxsk"]
+[ext_resource type="AudioStream" uid="uid://dyviu8gi4rmwl" path="res://assets/audio/sfx/u_b32baquv5u-8-bit-explosion-3-340456.mp3" id="8_pj6s8"]
+[ext_resource type="AudioStream" uid="uid://dr8ptf3kl2mxh" path="res://assets/audio/sfx/u_b32baquv5u-8-bit-explosion-10-340462.mp3" id="9_xvvrj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68lym"]
 atlas = ExtResource("3_ctxw3")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k2b56"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6wxa"]
 resource_local_to_scene = true
 atlas = ExtResource("2_q0dh1")
 region = Rect2(110, 2, 32, 32)
 
-[sub_resource type="Gradient" id="Gradient_xjxsk"]
+[sub_resource type="Gradient" id="Gradient_he787"]
 resource_local_to_scene = true
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.5060241, 1)
 colors = PackedColorArray(0.16078432, 0.19215687, 0.30980393, 1, 0.27058825, 0.30588236, 0.42745098, 1, 0.27058825, 0.30588236, 0.42745098, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pj6s8"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d7wy7"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_xjxsk")
+gradient = SubResource("Gradient_he787")
 width = 8
 height = 8
 fill = 1
@@ -203,6 +208,14 @@ func _on_animation_finished() -> void:
 	queue_free()
 "
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_536hn"]
+streams_count = 5
+stream_0/stream = ExtResource("5_ydx8i")
+stream_1/stream = ExtResource("6_k2b56")
+stream_2/stream = ExtResource("7_xjxsk")
+stream_3/stream = ExtResource("8_pj6s8")
+stream_4/stream = ExtResource("9_xvvrj")
+
 [node name="ExplosiveBlock" unique_id=861528389 instance=ExtResource("1_08ago")]
 script = ExtResource("2_ctxw3")
 knockback_strenght = 3200.0
@@ -213,10 +226,10 @@ texture = SubResource("AtlasTexture_68lym")
 
 [node name="GrassSprite" parent="." index="2" unique_id=478690904]
 visible = false
-texture = SubResource("AtlasTexture_k2b56")
+texture = SubResource("AtlasTexture_u6wxa")
 
 [node name="BreakParticles" parent="." index="3" unique_id=783161819]
-texture = SubResource("GradientTexture2D_pj6s8")
+texture = SubResource("GradientTexture2D_d7wy7")
 
 [node name="ExplosionArea" type="Area2D" parent="." index="4" unique_id=132036440]
 unique_name_in_owner = true
@@ -258,6 +271,10 @@ sprite_frames = SubResource("SpriteFrames_15g6r")
 frame = 5
 frame_progress = 1.0
 script = SubResource("GDScript_0hti2")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." index="8" unique_id=1090972088]
+stream = SubResource("AudioStreamRandomizer_536hn")
+bus = &"SFX"
 
 [connection signal="finished" from="SmokeParticles" to="SmokeParticles" method="_on_finished"]
 [connection signal="finished" from="ExplosionParticles" to="ExplosionParticles" method="_on_finished"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bwuxnut43656c" path="res://src/tanuki/balls/balls.tscn" id="1_340iv"]
 [ext_resource type="PackedScene" uid="uid://c4xuf7f1bo2am" path="res://src/ui/AudioSettings.tscn" id="2_hb02g"]
+[ext_resource type="PackedScene" uid="uid://cpehf5vapuscc" path="res://src/ui/FocusWindow.tscn" id="3_fx4gg"]
 
 [node name="TestHans" type="Node2D" unique_id=377269957]
 
@@ -12,3 +13,5 @@ position = Vector2(-504, -1128)
 zoom = Vector2(0.1, 0.1)
 
 [node name="AudioSettings" parent="." unique_id=1254508680 instance=ExtResource("2_hb02g")]
+
+[node name="FocusWindow" parent="." unique_id=1066030656 instance=ExtResource("3_fx4gg")]
