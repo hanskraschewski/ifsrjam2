@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -400.0
 @export var limit: float = 144.0
 @export var explosion_impact_on_player: float = 600.0
 
-var dead: bool = false
+var dead: bool = true
 
 var current_lane: int = 0
 var switching_lane: bool = false
@@ -128,4 +128,4 @@ func die() -> void:
 	dead = true
 	animated_sprite.play("death")
 	await animated_sprite.animation_finished
-	get_tree().get_first_node_in_group("GM").restart()
+	get_tree().get_first_node_in_group("HUD").show_death_screen()
