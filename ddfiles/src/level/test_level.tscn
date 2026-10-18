@@ -3,11 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_pcf1f"]
 [ext_resource type="PackedScene" uid="uid://nwgo7lbj7j83" path="res://src/blocks/gold_block.tscn" id="2_5ipog"]
 [ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_bq0i6"]
+[ext_resource type="Texture2D" uid="uid://dg3s8w3a5yvbq" path="res://assets/textures/InGameUI/TunnelOpening.png" id="2_tfvns"]
 [ext_resource type="Script" uid="uid://2x86f1fv013m" path="res://src/level/block_map.gd" id="2_wfa51"]
 [ext_resource type="PackedScene" uid="uid://c1yii3o40178g" path="res://src/blocks/explosive_block.tscn" id="3_68lym"]
+[ext_resource type="Texture2D" uid="uid://bpq0eeqgfvkcw" path="res://assets/textures/InGameUI/MainEnvironment.png" id="3_s7h1i"]
 [ext_resource type="PackedScene" uid="uid://cu68afo8pc1ba" path="res://src/blocks/skull_block.tscn" id="4_8wdye"]
+[ext_resource type="Texture2D" uid="uid://7ilxehrdy66" path="res://assets/textures/InGameUI/Logo.png" id="4_jf263"]
 [ext_resource type="Script" uid="uid://dj6qbo38tmmoa" path="res://src/shake.gd" id="5_88en4"]
 [ext_resource type="PackedScene" uid="uid://b50yhkvws4q74" path="res://src/blocks/spike_block.tscn" id="5_go26d"]
+[ext_resource type="Texture2D" uid="uid://p1xurykrb2ty" path="res://assets/textures/InGameUI/Shop.png" id="5_sy622"]
+[ext_resource type="Texture2D" uid="uid://ctt156htvrrg7" path="res://assets/textures/InGameUI/MainBG.png" id="9_rc23k"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mflhi"]
 scenes/1/scene = ExtResource("1_pcf1f")
@@ -22,6 +27,28 @@ sources/0 = SubResource("TileSetScenesCollectionSource_mflhi")
 
 [node name="TestLevel" type="Node2D" unique_id=1882760823]
 
+[node name="Background" type="Node2D" parent="." unique_id=1221151364]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=168007276]
+texture_filter = 1
+texture = ExtResource("9_rc23k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=1665425395]
+texture = ExtResource("2_tfvns")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=1406373696]
+texture = ExtResource("3_s7h1i")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=1667255311]
+position = Vector2(0, -97)
+texture = ExtResource("4_jf263")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background" unique_id=2037236278]
+position = Vector2(235, -58.000004)
+scale = Vector2(1.66, 1.66)
+texture = ExtResource("5_sy622")
+
 [node name="BlockMap" type="TileMapLayer" parent="." unique_id=257629081]
 tile_set = SubResource("TileSet_15g6r")
 script = ExtResource("2_wfa51")
@@ -35,8 +62,9 @@ prob_gold = 0.015
 position = Vector2(0, -64)
 
 [node name="Camera2D" type="Camera2D" parent="Tanuki" unique_id=516488156 groups=["Camera"]]
-position = Vector2(-2, 97)
+position = Vector2(0, 64)
 limit_left = 0
+limit_top = -180
 limit_right = 0
 position_smoothing_enabled = true
 script = ExtResource("5_88en4")
