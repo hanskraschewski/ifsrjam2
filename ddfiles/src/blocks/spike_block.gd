@@ -8,8 +8,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
+
 
 func break_block() -> void:
 	get_tree().get_first_node_in_group("Camera").add_shake()

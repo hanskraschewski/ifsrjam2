@@ -32,7 +32,7 @@ prob_block = 0.295
 prob_gold = 0.015
 
 [node name="Tanuki" parent="." unique_id=1317343491 instance=ExtResource("2_bq0i6")]
-position = Vector2(16, -95)
+position = Vector2(0, -64)
 
 [node name="Camera2D" type="Camera2D" parent="Tanuki" unique_id=516488156 groups=["Camera"]]
 position = Vector2(-2, 97)
