@@ -46,6 +46,7 @@ func generate_level() -> void:
 				elif y > block_enemy_depth and randf() < prob_block_enemy:
 					@warning_ignore("integer_division")
 					self.set_cell(Vector2i(x - width / 2, y), 0, Vector2i(0, 0), 4)
+					continue
 				elif y > 100 and randf() < prob_spike_enemy:
 					@warning_ignore("integer_division")
 					self.set_cell(Vector2i(x - width / 2, y), 0, Vector2i(0, 0), 5)

@@ -20,18 +20,13 @@ unique_name_in_owner = true
 [node name="Hud" parent="." unique_id=885183066 instance=ExtResource("3_tn2tj")]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="TextureRect" parent="Hud" unique_id=2073681749]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -3000.0
-offset_right = 2000.0
-grow_vertical = 0
-scale = Vector2(0.05, 0.05)
-texture = SubResource("ViewportTexture_6xgqt")
-
 [node name="SubViewport" type="SubViewport" parent="." unique_id=384745716]
 size = Vector2i(2000, 3000)
 
 [node name="Balls" parent="SubViewport" unique_id=1067371950 groups=["Balls"] instance=ExtResource("4_xdvpw")]
 position = Vector2(1000, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1863470783]
+position = Vector2(-256.00003, 100)
+scale = Vector2(0.05, 0.05)
+texture = SubResource("ViewportTexture_6xgqt")
