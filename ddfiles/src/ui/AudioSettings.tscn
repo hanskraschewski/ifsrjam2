@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dtjfwelge1ixj" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="2_3sk7y"]
 
 [node name="AudioSettings" type="CanvasLayer" unique_id=1254508680]
+process_mode = 3
 script = ExtResource("1_8dsjq")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1963832443]
@@ -24,6 +25,7 @@ theme_override_fonts/font = ExtResource("2_3sk7y")
 text = "MusicVolume"
 
 [node name="MusicSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=1168073390]
+process_mode = 3
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer" unique_id=131022468]
@@ -32,9 +34,11 @@ theme_override_fonts/font = ExtResource("2_3sk7y")
 text = "SFX Volume"
 
 [node name="SFXSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=25456232]
+process_mode = 3
 layout_mode = 2
 
 [node name="ReturnButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=376582484]
+process_mode = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_3sk7y")
 text = "Return"

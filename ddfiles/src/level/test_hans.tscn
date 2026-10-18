@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://docicevamdaon"]
 
 [ext_resource type="PackedScene" uid="uid://bwuxnut43656c" path="res://src/tanuki/balls/balls.tscn" id="1_340iv"]
+[ext_resource type="PackedScene" uid="uid://c4xuf7f1bo2am" path="res://src/ui/AudioSettings.tscn" id="2_hb02g"]
 
 [node name="TestHans" type="Node2D" unique_id=377269957]
 
@@ -9,3 +10,5 @@ position = Vector2(-504, -1128)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=677346283]
 zoom = Vector2(0.1, 0.1)
+
+[node name="AudioSettings" parent="." unique_id=1254508680 instance=ExtResource("2_hb02g")]
