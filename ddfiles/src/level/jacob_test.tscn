@@ -9,6 +9,7 @@
 [node name="Node2D" type="Node2D" unique_id=1477173871]
 
 [node name="level" parent="." unique_id=786614293 instance=ExtResource("1_ly613")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1062246756 groups=["Camera"]]
 script = ExtResource("3_e3aup")
@@ -77,7 +78,9 @@ position = Vector2(-58, 149)
 position = Vector2(50, 167)
 
 [node name="level2" parent="." unique_id=1201631584 instance=ExtResource("1_ly613")]
+visible = false
 position = Vector2(0, 360)
 
 [node name="level3" parent="." unique_id=1857615418 instance=ExtResource("1_ly613")]
+visible = false
 position = Vector2(1, 720)
