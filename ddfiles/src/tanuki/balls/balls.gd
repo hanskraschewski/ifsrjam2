@@ -1,6 +1,6 @@
 extends Node2D
 
-var balls_size = 1
+var balls_size = 0
 var max_gold_amount = 100
 @export var nugget_scene: PackedScene
 
@@ -8,6 +8,8 @@ var current_gold: int = 0
 
 @onready
 var handle_position: Vector2 = %Handle.position
+@onready
+var soft_balls: SoftBody2D = %SoftBody2D
 
 # Called when the node enters the scene tree fior the first time.
 func _ready() -> void:
@@ -21,11 +23,11 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("arrow_up"):
-		add_gold(20)
+		upgrade(1)
 	if event.is_action_pressed("arrow_down"):
-		remove_gold(10)
+		upgrade(2)
 	if event.is_action_pressed("arrow_right"):
-		jiggle()
+		add_gold(20)
 		
 func add_gold(amount: int) -> void:
 	for i in amount:
@@ -59,3 +61,8 @@ func jiggle() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Handle, "position", %Handle.position + Vector2(0, -50), 0.2).set_ease(Tween.EASE_OUT)
 	tween.tween_property(%Handle, "position", handle_position , 0.1).set_ease(Tween.EASE_OUT)
+
+func upgrade(value: int) -> void:
+	pass
+			
+	
