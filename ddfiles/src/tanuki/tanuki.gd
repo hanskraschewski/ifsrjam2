@@ -15,9 +15,11 @@ var switching_lane: bool = false
 var prev_vel_x: float
 var vel_alpha: float = 0.3
 
-
 # stunts
 var input_buffer = []
+
+func _ready() -> void:
+	Globals.player = self
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

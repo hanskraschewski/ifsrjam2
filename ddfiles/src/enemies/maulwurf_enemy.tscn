@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bwjtn8hk1ef4w"]
+
+[ext_resource type="Script" uid="uid://bmb1a40bitkxi" path="res://src/enemies/maulwurf_enemy.gd" id="1_knhpg"]
+[ext_resource type="Texture2D" uid="uid://dm35gn1lrqlgb" path="res://icon.svg" id="2_32wg6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gf3bb"]
+radius = 64.381676
+
+[node name="maulwurf_enemy" type="Node2D" unique_id=528748517]
+script = ExtResource("1_knhpg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1609923335]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=22507548]
+texture = ExtResource("2_32wg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1362145364]
+shape = SubResource("CircleShape2D_gf3bb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
