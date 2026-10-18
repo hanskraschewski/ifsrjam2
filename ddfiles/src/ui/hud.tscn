@@ -81,6 +81,75 @@ texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 axis_stretch_horizontal = 1
 
+[sub_resource type="Animation" id="Animation_yy3iv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shop:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_751uk"]
+resource_name = "show_shop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shop:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shop:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-234, 0, 0, 0.06666667, 152, 0, -0.43333334, -2, 0.24973415, 1.1526191),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w067o"]
+_data = {
+&"RESET": SubResource("Animation_yy3iv"),
+&"show_shop": SubResource("Animation_751uk")
+}
+
 [node name="Hud" type="CanvasLayer" unique_id=885183066 groups=["HUD"]]
 script = ExtResource("1_4rn03")
 
@@ -97,6 +166,7 @@ texture = ExtResource("1_eqvli")
 
 [node name="Shop" type="TextureRect" parent="." unique_id=461507685]
 unique_name_in_owner = true
+visible = false
 z_index = 10
 texture_filter = 1
 anchors_preset = 15
@@ -217,6 +287,10 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_e8jo1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vk5sl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_3yh4q")
 text = "return"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1237605132]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_w067o")
 
 [connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer/BallsUPButton" to="." method="_on_balls_up_button_pressed"]
 [connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TntUpButton" to="." method="_on_tnt_up_button_pressed"]
