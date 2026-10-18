@@ -30,6 +30,7 @@ func break_block() -> void:
 			#print((self.global_position - body.global_position).normalized() * knockback_strenght)
 	
 	animated_sprite.show()
+	$ExplosionSound.play()
 	animated_sprite.play("default")
 	animated_sprite.reparent(self.get_parent())
 	smoke_particles.restart()

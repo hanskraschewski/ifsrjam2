@@ -6,25 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://o43t61y50obq" path="res://assets/textures/enemies/SpikeBLock.png" id="3_s31kc"]
 [ext_resource type="Texture2D" uid="uid://dhgnfqabl2584" path="res://assets/textures/InGameUI/coins.png" id="5_s31kc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ok3vk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s31kc"]
 resource_local_to_scene = true
 atlas = ExtResource("2_my46s")
 region = Rect2(2, 2, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dff22"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok3vk"]
 resource_local_to_scene = true
 atlas = ExtResource("2_my46s")
 region = Rect2(110, 2, 32, 32)
 
-[sub_resource type="Gradient" id="Gradient_jjuvc"]
+[sub_resource type="Gradient" id="Gradient_giu33"]
 resource_local_to_scene = true
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.42258066, 0.66129035)
 colors = PackedColorArray(0.3372549, 0.10980392, 0.15294118, 1, 0.91764706, 0.20392157, 0.24313726, 1, 0.27058825, 0.30588236, 0.42745098, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_giu33"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vivy7"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_jjuvc")
+gradient = SubResource("Gradient_giu33")
 width = 8
 height = 8
 fill = 1
@@ -112,7 +112,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_6577x")
 }, {
 "duration": 1.0,
@@ -136,10 +136,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_piosq")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"idle",
 "speed": 7.0
 }]
+
+[sub_resource type="GDScript" id="GDScript_15g6r"]
+script/source = "extends AnimatedSprite2D
+
+
+
+
+func _on_animation_finished() -> void:
+	self.queue_free()
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjuvc"]
 atlas = ExtResource("5_s31kc")
@@ -161,6 +171,12 @@ script/source = "extends CPUParticles2D
 func _on_finished() -> void:
 	queue_free()
 "
+
+[sub_resource type="Gradient" id="Gradient_jjuvc"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.42258066, 0.66129035)
+colors = PackedColorArray(0.3372549, 0.10980392, 0.15294118, 1, 0.91764706, 0.20392157, 0.24313726, 1, 0.27058825, 0.30588236, 0.42745098, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_s31kc"]
 resource_local_to_scene = true
@@ -194,29 +210,27 @@ script = ExtResource("2_s31kc")
 
 [node name="BaseSprite" parent="." index="1" unique_id=224091359]
 visible = false
-texture = SubResource("AtlasTexture_ok3vk")
+texture = SubResource("AtlasTexture_s31kc")
 
 [node name="GrassSprite" parent="." index="2" unique_id=478690904]
 visible = false
-texture = SubResource("AtlasTexture_dff22")
+texture = SubResource("AtlasTexture_ok3vk")
 
 [node name="BreakParticles" parent="." index="3" unique_id=783161819]
 visible = false
-texture = SubResource("GradientTexture2D_giu33")
+texture = SubResource("GradientTexture2D_vivy7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4" unique_id=2073735891]
+unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_536hn")
 animation = &"idle"
-frame = 7
-frame_progress = 1.0
+autoplay = "idle"
+frame = 4
+frame_progress = 0.8453055
+script = SubResource("GDScript_15g6r")
 
-[node name="IdleTimer" type="Timer" parent="." index="5" unique_id=1667125033]
-wait_time = 4.0
-one_shot = true
-autostart = true
-
-[node name="GoldParticles" type="CPUParticles2D" parent="." index="6" unique_id=1069149093]
+[node name="GoldParticles" type="CPUParticles2D" parent="." index="5" unique_id=1069149093]
 unique_name_in_owner = true
 z_index = 1
 texture_filter = 1
@@ -237,7 +251,8 @@ scale_amount_curve = SubResource("Curve_giu33")
 color_ramp = SubResource("Gradient_vivy7")
 script = SubResource("GDScript_pucym")
 
-[node name="BloodParticles" type="CPUParticles2D" parent="." index="7" unique_id=1086610993]
+[node name="BloodParticles" type="CPUParticles2D" parent="." index="6" unique_id=1086610993]
+unique_name_in_owner = true
 z_index = 1
 texture_filter = 1
 emitting = false
@@ -258,5 +273,6 @@ scale_amount_curve = SubResource("Curve_ok3vk")
 color_ramp = SubResource("Gradient_dff22")
 script = SubResource("GDScript_e0uga")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="finished" from="GoldParticles" to="GoldParticles" method="_on_finished"]
 [connection signal="finished" from="BloodParticles" to="BloodParticles" method="_on_finished"]

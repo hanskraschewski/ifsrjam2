@@ -2,12 +2,162 @@
 
 [ext_resource type="Script" uid="uid://dxwnb3igc3aoq" path="res://src/ui/hud.gd" id="1_4rn03"]
 [ext_resource type="Texture2D" uid="uid://c45egyorbison" path="res://assets/textures/InGameUI/GameOverScreen.png" id="1_eqvli"]
+[ext_resource type="Texture2D" uid="uid://yrv1uredv0t2" path="res://assets/textures/InGameUI/ShopWindow.png" id="3_i4jpw"]
+[ext_resource type="FontFile" uid="uid://dtjfwelge1ixj" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="3_snmo6"]
+[ext_resource type="Texture2D" uid="uid://b8ms221ppcs7l" path="res://assets/textures/InGameUI/ItemFrame.png" id="5_yy3iv"]
+[ext_resource type="Texture2D" uid="uid://b2vcgyiskr30t" path="res://assets/textures/InGameUI/BallExpansion.png" id="6_751uk"]
+[ext_resource type="Texture2D" uid="uid://rvhl1v7ha5ns" path="res://assets/textures/InGameUI/PriceTag.png" id="7_w067o"]
+[ext_resource type="Texture2D" uid="uid://dm3ki5yxiv5oa" path="res://assets/textures/InGameUI/MoreCiggies.png" id="8_je3ri"]
+[ext_resource type="PackedScene" uid="uid://c4xuf7f1bo2am" path="res://src/ui/AudioSettings.tscn" id="9_751uk"]
+[ext_resource type="PackedScene" uid="uid://cpehf5vapuscc" path="res://src/ui/FocusWindow.tscn" id="10_w067o"]
 
-[node name="Hud" type="CanvasLayer" unique_id=885183066]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwgqd"]
+texture = ExtResource("5_yy3iv")
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy3iv"]
+texture = ExtResource("5_yy3iv")
+axis_stretch_horizontal = 1
+modulate_color = Color(1.825, 1.825, 1.825, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_751uk"]
+texture = ExtResource("5_yy3iv")
+axis_stretch_horizontal = 1
+modulate_color = Color(0.6509804, 0.654902, 0.6627451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w067o"]
+texture = ExtResource("5_yy3iv")
+axis_stretch_horizontal = 1
+modulate_color = Color(1.825, 1.825, 1.825, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_je3ri"]
+texture = ExtResource("5_yy3iv")
+axis_stretch_horizontal = 1
+modulate_color = Color(0.6509804, 0.654902, 0.6627451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5qe1"]
+texture = ExtResource("5_yy3iv")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ipk1d"]
+texture = ExtResource("5_yy3iv")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+modulate_color = Color(1.825, 1.825, 1.825, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8jo1"]
+texture = ExtResource("5_yy3iv")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+modulate_color = Color(0.6509804, 0.654902, 0.6627451, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_24csc"]
+load_path = "res://.godot/imported/ItemFrame.png-f52e3455dca03211282b3132f677120f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vk5sl"]
+texture = SubResource("CompressedTexture2D_24csc")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8576i"]
+load_path = "res://.godot/imported/ItemFrame.png-f52e3455dca03211282b3132f677120f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3yh4q"]
+texture = SubResource("CompressedTexture2D_8576i")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="Animation" id="Animation_yy3iv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shop:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_751uk"]
+resource_name = "show_shop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shop:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shop:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-234, 0, 0, 0.06666667, 152, 0, -0.43333334, -2, 0.24973415, 1.1526191),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w067o"]
+_data = {
+&"RESET": SubResource("Animation_yy3iv"),
+&"show_shop": SubResource("Animation_751uk")
+}
+
+[node name="Hud" type="CanvasLayer" unique_id=885183066 groups=["HUD"]]
 script = ExtResource("1_4rn03")
 
 [node name="DeathScreen" type="TextureRect" parent="." unique_id=2098464539]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,3 +165,140 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_eqvli")
+
+[node name="Shop" type="TextureRect" parent="." unique_id=461507685]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_i4jpw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Shop" unique_id=2033640349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 180
+theme_override_constants/margin_top = 116
+theme_override_constants/margin_right = 180
+theme_override_constants/margin_bottom = 83
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/MarginContainer" unique_id=483973508]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Shop/MarginContainer/VBoxContainer" unique_id=527668279]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=175054362]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="BallsUPButton" type="Button" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer" unique_id=657868498]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_snmo6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fwgqd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yy3iv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_751uk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fwgqd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fwgqd")
+icon = ExtResource("6_751uk")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer" unique_id=1343436369]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_w067o")
+
+[node name="BallsUPLabel" type="Label" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer/TextureRect" unique_id=1826333006]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_snmo6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=787109226]
+layout_mode = 2
+theme_override_constants/separation = -8
+alignment = 2
+
+[node name="TntUpButton" type="Button" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2" unique_id=1218637462]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_snmo6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fwgqd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w067o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_je3ri")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fwgqd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fwgqd")
+icon = ExtResource("8_je3ri")
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2" unique_id=2045815771]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_w067o")
+stretch_mode = 2
+
+[node name="TntUpLabel" type="Label" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TextureRect2" unique_id=492018453]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_snmo6")
+text = "10"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="Shop/MarginContainer/VBoxContainer" unique_id=1116291319]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_snmo6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k5qe1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ipk1d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e8jo1")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vk5sl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3yh4q")
+text = "return"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1237605132]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_w067o")
+
+[node name="AudioSettings" parent="." unique_id=1254508680 instance=ExtResource("9_751uk")]
+
+[node name="FocusWindow" parent="." unique_id=1066030656 instance=ExtResource("10_w067o")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer/BallsUPButton" to="." method="_on_balls_up_button_pressed"]
+[connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TntUpButton" to="." method="_on_tnt_up_button_pressed"]
+[connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

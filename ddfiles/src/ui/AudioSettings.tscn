@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://c4xuf7f1bo2am"]
+
+[ext_resource type="Script" uid="uid://b7c78nlgdkye0" path="res://src/ui/audio_settings.gd" id="1_8dsjq"]
+[ext_resource type="FontFile" uid="uid://dtjfwelge1ixj" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="2_3sk7y"]
+[ext_resource type="Texture2D" uid="uid://cb61oa3tv3ahe" path="res://assets/textures/InGameUI/MenuBackground.png" id="2_cgxm6"]
+[ext_resource type="AudioStream" uid="uid://br1lkvbtbo2ww" path="res://assets/audio/music/tim_kulig_free_music-beep-boopity-exploration-373315.mp3" id="3_npe7k"]
+[ext_resource type="AudioStream" uid="uid://hojydfjw3xbk" path="res://assets/audio/music/paperplanerecords-pixel_pounce-503087.mp3" id="4_7org7"]
+[ext_resource type="Texture2D" uid="uid://dh4n6nrnnvb3t" path="res://assets/textures/InGameUI/MenuTanuki.png" id="4_7s50p"]
+[ext_resource type="Texture2D" uid="uid://xxxe5yk75ysd" path="res://assets/textures/InGameUI/Slider.png" id="4_nuo5q"]
+[ext_resource type="Texture2D" uid="uid://gfwyt5mpu2qh" path="res://assets/textures/InGameUI/Music.png" id="4_x8jl4"]
+[ext_resource type="AudioStream" uid="uid://6vl477nbgyxr" path="res://assets/audio/music/nickpanek-chiptune-nu-metal-216243.mp3" id="5_cgxm6"]
+[ext_resource type="AudioStream" uid="uid://d0kf488a3f2hk" path="res://assets/audio/music/zephiramusic-lofi-gaming-606302.mp3" id="6_7s50p"]
+[ext_resource type="Texture2D" uid="uid://yu0cgml7kqsk" path="res://assets/textures/InGameUI/MenuCross.png" id="6_nuo5q"]
+[ext_resource type="Texture2D" uid="uid://waa5opcvtu4u" path="res://assets/textures/InGameUI/SFX.png" id="7_vimub"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1jid"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("2_cgxm6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nuo5q"]
+texture = ExtResource("4_nuo5q")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf3d6"]
+atlas = ExtResource("4_7s50p")
+region = Rect2(0, 0, 26, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5md75"]
+texture = SubResource("AtlasTexture_nf3d6")
+expand_margin_top = 8.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj5vx"]
+atlas = ExtResource("4_7s50p")
+region = Rect2(52, 0, 26, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qrc4"]
+texture = SubResource("AtlasTexture_hj5vx")
+expand_margin_top = 8.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nv3d1"]
+texture = ExtResource("4_nuo5q")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gquu"]
+atlas = ExtResource("4_7s50p")
+region = Rect2(26, 0, 26, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7tm5"]
+texture = SubResource("AtlasTexture_8gquu")
+expand_margin_top = 8.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rotk"]
+atlas = ExtResource("4_7s50p")
+region = Rect2(78, 0, 26, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gg4i"]
+texture = SubResource("AtlasTexture_4rotk")
+expand_margin_top = 8.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8jl4"]
+atlas = ExtResource("6_nuo5q")
+region = Rect2(0, 0, 21, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nelt5"]
+texture = SubResource("AtlasTexture_x8jl4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqvr7"]
+atlas = ExtResource("6_nuo5q")
+region = Rect2(21, 0, 21, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vimub"]
+texture = SubResource("AtlasTexture_uqvr7")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x8jl4"]
+load_path = "res://.godot/imported/MenuCross.png-c0f36dcfa0414caf6664ee3c1ff55668.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vimub"]
+atlas = SubResource("CompressedTexture2D_x8jl4")
+region = Rect2(21, 0, 21, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqvr7"]
+texture = SubResource("AtlasTexture_vimub")
+modulate_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_536hn"]
+streams_count = 3
+stream_0/stream = ExtResource("3_npe7k")
+stream_1/stream = ExtResource("4_7org7")
+stream_2/stream = ExtResource("5_cgxm6")
+
+[node name="AudioSettings" type="CanvasLayer" unique_id=1254508680]
+process_mode = 3
+script = ExtResource("1_8dsjq")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1963832443]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -60.0
+offset_right = 128.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d1jid")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer" unique_id=460525607]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer3" unique_id=483810622]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer3/HBoxContainer" unique_id=1884856143]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=106367631]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3sk7y")
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=1463678557]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_x8jl4")
+stretch_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=1168073390]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxTexture_nuo5q")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_5md75")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_7qrc4")
+value = 20.0
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=597651716]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_vimub")
+stretch_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=25456232]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxTexture_nv3d1")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_j7tm5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_4gg4i")
+value = 30.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer3/HBoxContainer" unique_id=1468646096]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer2" unique_id=2128660419]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3sk7y")
+text = "Other"
+horizontal_alignment = 1
+
+[node name="FocusModeCheckbox" type="CheckBox" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer2" unique_id=1189419069]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3sk7y")
+text = "Focus Mode"
+
+[node name="LofiModeCheckbox" type="CheckBox" parent="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer2" unique_id=1812925161]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3sk7y")
+text = "Lofi Mode"
+
+[node name="ReturnButton" type="Button" parent="PanelContainer/VBoxContainer3" unique_id=376582484]
+process_mode = 3
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_3sk7y")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nelt5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vimub")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uqvr7")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2104322220]
+stream = SubResource("AudioStreamRandomizer_536hn")
+
+[node name="LofiPlayer" type="AudioStreamPlayer2D" parent="." unique_id=647833400]
+stream = ExtResource("6_7s50p")
+
+[connection signal="value_changed" from="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer2/FocusModeCheckbox" to="." method="_on_focus_mode_checkbox_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer2/LofiModeCheckbox" to="." method="_on_lofi_mode_checkbox_toggled"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer3/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="LofiPlayer" to="." method="_on_lofi_player_finished"]

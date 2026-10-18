@@ -24,12 +24,18 @@ var maulwurf: PackedScene = preload("res://src/enemies/maulwurf_enemy.tscn")
 
 
 func _ready() -> void:
+	generate_level()
+
+
+func generate_level() -> void:
+	self.clear()
+	
 	for y: int in depth:
 		if randf() > prob_row:
 			continue
 		for x: int in width:
 			if randf() < prob_block:
-				if randf() < prob_explosion:
+				if randf() < Globals.tnt_probability:
 					@warning_ignore("integer_division")
 					self.set_cell(Vector2i(x - width / 2, y), 0, Vector2i(0, 0), 3)
 					continue
