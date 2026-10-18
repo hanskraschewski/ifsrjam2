@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://cxm0mcktd42bj" path="res://src/globals/game_manager.gd" id="1_7xgsd"]
 [ext_resource type="PackedScene" uid="uid://dnm5trwu856p5" path="res://src/level/test_level.tscn" id="2_tn2tj"]
 [ext_resource type="PackedScene" uid="uid://bawflfjti2oar" path="res://src/ui/hud.tscn" id="3_tn2tj"]
-[ext_resource type="PackedScene" uid="uid://dym65c38kaqvm" path="res://src/level/level_background.tscn" id="4_xdvpw"]
+[ext_resource type="PackedScene" uid="uid://bwuxnut43656c" path="res://src/tanuki/balls/balls.tscn" id="4_xdvpw"]
+[ext_resource type="PackedScene" uid="uid://dym65c38kaqvm" path="res://src/level/level_background.tscn" id="5_fhi5k"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6xgqt"]
+viewport_path = NodePath("SubViewport")
 
 [node name="GameManager" type="Node" unique_id=1059624644 groups=["GM"]]
 script = ExtResource("1_7xgsd")
@@ -11,7 +15,23 @@ script = ExtResource("1_7xgsd")
 [node name="TestLevel" parent="." unique_id=1882760823 instance=ExtResource("2_tn2tj")]
 unique_name_in_owner = true
 
+[node name="levelBG" parent="." unique_id=786614293 instance=ExtResource("5_fhi5k")]
+
 [node name="Hud" parent="." unique_id=885183066 instance=ExtResource("3_tn2tj")]
 unique_name_in_owner = true
 
-[node name="levelBG" parent="." unique_id=786614293 instance=ExtResource("4_xdvpw")]
+[node name="Sprite2D" type="TextureRect" parent="Hud" unique_id=2073681749]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -3000.0
+offset_right = 2000.0
+grow_vertical = 0
+scale = Vector2(0.05, 0.05)
+texture = SubResource("ViewportTexture_6xgqt")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=384745716]
+size = Vector2i(2000, 3000)
+
+[node name="Balls" parent="SubViewport" unique_id=1067371950 groups=["Balls"] instance=ExtResource("4_xdvpw")]
+position = Vector2(1000, 500)

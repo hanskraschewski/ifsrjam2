@@ -8,6 +8,8 @@ extends Block
 
 
 func break_block() -> void:
+	var balls = get_tree().get_first_node_in_group("Balls")
+	balls.add_gold(50)
 	get_tree().get_first_node_in_group("Camera").add_shake()
 	animated_sprite_2d.play("death")
 	animated_sprite_2d.reparent(self.get_parent())

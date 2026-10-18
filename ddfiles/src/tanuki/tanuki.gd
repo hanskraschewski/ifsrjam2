@@ -102,7 +102,7 @@ func _on_block_detection_area_body_entered(body: Node2D) -> void:
 		return
 	if body is SpikeBlock:
 		#:TODO: damage player
-		velocity.y = JUMP_VELOCITY
+		die()
 		return
 	if body is Block:
 		animated_sprite.play("impact")

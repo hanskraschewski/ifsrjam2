@@ -51,12 +51,11 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_tnt_up_button_pressed() -> void:
-	Globals.tnt_probability *= 2.0
 	get_tree().get_first_node_in_group("BlockMap").generate_level()
 	var balls = get_tree().get_first_node_in_group("Balls")
 	if balls:
-		if balls.remove_gold(5):
-			Globals.tnt_probability *= 2.0
+		if balls.remove_gold(20):
+			Globals.tnt_probability += 0.1
 	print("TODO")
 
 

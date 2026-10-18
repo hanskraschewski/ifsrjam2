@@ -39,6 +39,8 @@ func _ready() -> void:
 
 
 func break_block() -> void:
+	var balls = get_tree().get_first_node_in_group("Balls")
+	balls.add_gold(1)
 	break_audio_stream.play()
 	break_audio_stream.reparent(self.get_parent())
 	break_audio_stream.destroy()
