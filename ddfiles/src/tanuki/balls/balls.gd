@@ -35,6 +35,7 @@ func add_gold(amount: int) -> void:
 		$NuggetContainer.add_child(new_nugget)
 		current_gold += 1
 		await get_tree().create_timer(0.1).timeout
+		$AddCoinSound.play()
 
 func remove_gold(amount: int) -> bool:
 	var net_worth: int = 0
@@ -45,6 +46,7 @@ func remove_gold(amount: int) -> bool:
 			net_worth += 1
 	if net_worth < amount: 
 		return false
+	$SellSound.play()
 	for i in amount:
 		#TODO: play sound
 		$NuggetContainer.get_child(i).queue_free()
