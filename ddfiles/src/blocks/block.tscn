@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btxl0nw0li5rx" path="res://src/blocks/block.gd" id="1_lid8i"]
 [ext_resource type="Texture2D" uid="uid://fp8atpmevjou" path="res://assets/textures/Blocks/BaseBlock.png" id="2_tmgon"]
+[ext_resource type="AudioStream" uid="uid://docj82ajjnras" path="res://assets/audio/sfx/stomp.wav" id="3_sqsfy"]
+[ext_resource type="AudioStream" uid="uid://ri5cfj3xroyq" path="res://assets/audio/sfx/freesound_community-8-bit-explosion-95847.mp3" id="4_grr4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15g6r"]
 size = Vector2(32, 32)
@@ -49,8 +51,24 @@ func _on_finished() -> void:
 	queue_free()
 "
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kh2f8"]
+streams_count = 2
+stream_0/stream = ExtResource("3_sqsfy")
+stream_1/stream = ExtResource("4_grr4r")
+
+[sub_resource type="GDScript" id="GDScript_sqsfy"]
+script/source = "extends AudioStreamPlayer2D
+
+
+func destroy():
+	await get_tree().create_timer(1.0).timeout
+	self.queue_free()
+"
+
 [node name="Block" type="StaticBody2D" unique_id=861528389]
 script = ExtResource("1_lid8i")
+depth_1 = 50
+depth_2 = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1374159385]
 shape = SubResource("RectangleShape2D_15g6r")
@@ -86,5 +104,11 @@ scale_amount_max = 1.4
 scale_amount_curve = SubResource("Curve_jnxu3")
 color_ramp = SubResource("Gradient_2n5ut")
 script = SubResource("GDScript_e0uga")
+
+[node name="BreakAudioStream" type="AudioStreamPlayer2D" parent="." unique_id=1360654413]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_kh2f8")
+bus = &"SFX"
+script = SubResource("GDScript_sqsfy")
 
 [connection signal="finished" from="BreakParticles" to="BreakParticles" method="_on_finished"]

@@ -13,6 +13,7 @@ extends StaticBody2D
 @onready var base_sprite: Sprite2D = %BaseSprite
 @onready var grass_sprite: Sprite2D = %GrassSprite
 @onready var break_particles: CPUParticles2D = %BreakParticles
+@onready var break_audio_stream: AudioStreamPlayer2D = %BreakAudioStream
 
 
 func _ready() -> void:
@@ -38,6 +39,9 @@ func _ready() -> void:
 
 
 func break_block() -> void:
+	break_audio_stream.play()
+	break_audio_stream.reparent(self.get_parent())
+	break_audio_stream.destroy()
 	get_tree().get_first_node_in_group("Camera").add_shake()
 	break_particles.restart()
 	break_particles.reparent(self.get_parent())
