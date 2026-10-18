@@ -23,6 +23,8 @@ func break_block() -> void:
 	is_exploded = true
 	for body: PhysicsBody2D in explosion_area.get_overlapping_bodies():
 		if body is Block: body.break_block()
+	for area in explosion_area.get_overlapping_areas():
+		if area.get_parent() is Maulwurf: area.get_parent().die()
 		#elif body is CharacterBody2D:
 			#body.velocity = (body.global_position - self.global_position).normalized() * knockback_strenght
 			#print((self.global_position - body.global_position).normalized() * knockback_strenght)
