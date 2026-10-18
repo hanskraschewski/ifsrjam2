@@ -1,11 +1,64 @@
 [gd_scene format=3 uid="uid://55ljcng5inkb"]
 
 [ext_resource type="PackedScene" uid="uid://eov2yf4cjodo" path="res://src/level/high_score.tscn" id="1_m1nco"]
-[ext_resource type="PackedScene" uid="uid://dvrsrphln5pk4" path="res://src/level/shop.tscn" id="2_4vbna"]
+[ext_resource type="PackedScene" uid="uid://bwjtn8hk1ef4w" path="res://src/enemies/maulwurf_enemy.tscn" id="1_rix0x"]
+[ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_1w5n1"]
+[ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="4_1w5n1"]
+[ext_resource type="Script" uid="uid://dj6qbo38tmmoa" path="res://src/shake.gd" id="4_e3aup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rix0x"]
+size = Vector2(581, 20)
 
 [node name="Node2D" type="Node2D" unique_id=1477173871]
+
+[node name="maulwurf_enemy" parent="." unique_id=528748517 instance=ExtResource("1_rix0x")]
+position = Vector2(141, -7)
+
+[node name="Tanuki" parent="." unique_id=1317343491 instance=ExtResource("2_1w5n1")]
+position = Vector2(-4, -148)
 
 [node name="CanvasLayer" parent="." unique_id=1960712073 instance=ExtResource("1_m1nco")]
 visible = false
 
-[node name="shop" parent="." unique_id=79452910 instance=ExtResource("2_4vbna")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1062246756 groups=["Camera"]]
+script = ExtResource("4_e3aup")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=511337488]
+position = Vector2(0, 38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1757579962]
+position = Vector2(19.5, 0)
+shape = SubResource("RectangleShape2D_rix0x")
+
+[node name="Block" parent="Area2D" unique_id=861528389 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block" parent="Area2D/Block" unique_id=1597242020 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block" parent="Area2D/Block/Block" unique_id=1734969301 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block" parent="Area2D/Block/Block/Block" unique_id=1724241210 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block" parent="Area2D/Block/Block/Block/Block" unique_id=440482083 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block" parent="Area2D/Block/Block/Block/Block/Block" unique_id=263071106 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block" parent="Area2D/Block/Block/Block/Block/Block/Block" unique_id=507653285 instance=ExtResource("4_1w5n1")]
+position = Vector2(2, -6)
+
+[node name="Block2" parent="Area2D" unique_id=459436090 instance=ExtResource("4_1w5n1")]
+position = Vector2(3, 24)
+
+[node name="Block3" parent="Area2D" unique_id=1212103772 instance=ExtResource("4_1w5n1")]
+position = Vector2(94, -45)
+
+[node name="Block4" parent="Area2D" unique_id=569508948 instance=ExtResource("4_1w5n1")]
+position = Vector2(-1, 89)
+
+[node name="Block5" parent="Area2D" unique_id=282993698 instance=ExtResource("4_1w5n1")]
+position = Vector2(0, 122)

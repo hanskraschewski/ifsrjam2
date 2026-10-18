@@ -1,0 +1,264 @@
+[gd_scene format=3 uid="uid://c1yii3o40178g"]
+
+[ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_08ago"]
+[ext_resource type="Script" uid="uid://dw5atlqie3owk" path="res://src/blocks/explosive_block.gd" id="2_ctxw3"]
+[ext_resource type="Texture2D" uid="uid://fp8atpmevjou" path="res://assets/textures/Blocks/BaseBlock.png" id="2_q0dh1"]
+[ext_resource type="Texture2D" uid="uid://bwn6w5xuvm0kf" path="res://assets/textures/Blocks/tnt.png" id="3_ctxw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68lym"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2b56"]
+resource_local_to_scene = true
+atlas = ExtResource("2_q0dh1")
+region = Rect2(110, 2, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_xjxsk"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5060241, 1)
+colors = PackedColorArray(0.16078432, 0.19215687, 0.30980393, 1, 0.27058825, 0.30588236, 0.42745098, 1, 0.27058825, 0.30588236, 0.42745098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pj6s8"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_xjxsk")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.3, 0.3)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15g6r"]
+radius = 96.0
+
+[sub_resource type="Gradient" id="Gradient_ctxw3"]
+offsets = PackedFloat32Array(0, 0.17320262, 1)
+colors = PackedColorArray(0.728822, 0.728822, 0.728822, 1, 0.73692703, 0.63213325, 0.5522718, 1, 0.581033, 0.58103293, 0.5810329, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ph2to"]
+gradient = SubResource("Gradient_ctxw3")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_wmfs4"]
+_data = [Vector2(0.017361112, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l1b6l"]
+curve = SubResource("Curve_wmfs4")
+
+[sub_resource type="Gradient" id="Gradient_5mu8l"]
+colors = PackedColorArray(1, 1, 1, 1, 0.26657522, 0.2665752, 0.2665752, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mta82"]
+gradient = SubResource("Gradient_5mu8l")
+
+[sub_resource type="Curve" id="Curve_dugxr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2n5ut"]
+curve = SubResource("Curve_dugxr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0hti2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 18.34
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 24.539999
+initial_velocity_max = 55.21
+gravity = Vector3(0, -98, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_2n5ut")
+color_ramp = SubResource("GradientTexture1D_mta82")
+alpha_curve = SubResource("CurveTexture_l1b6l")
+
+[sub_resource type="GDScript" id="GDScript_tmgon"]
+script/source = "extends GPUParticles2D
+
+
+func _on_finished() -> void:
+	queue_free()
+"
+
+[sub_resource type="Gradient" id="Gradient_xf31r"]
+offsets = PackedFloat32Array(0, 0.104575165, 0.3006536, 1)
+colors = PackedColorArray(0.7760568, 0.7677466, 0, 1, 0.801358, 0.42831066, 0.13068926, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0hti2"]
+gradient = SubResource("Gradient_xf31r")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.6, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_2n5ut"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jnxu3"]
+curve = SubResource("Curve_2n5ut")
+
+[sub_resource type="Curve" id="Curve_l1b6l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.39930552, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_arxl7"]
+curve = SubResource("Curve_l1b6l")
+
+[sub_resource type="Curve" id="Curve_3iyh1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.22569442, 0.51376146), -2.0044296, -2.0044296, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ph2to"]
+curve = SubResource("Curve_3iyh1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_15g6r"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 7.61
+spread = 180.0
+initial_velocity_min = 82.82
+initial_velocity_max = 208.59
+gravity = Vector3(0, 98, 0)
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_ph2to")
+alpha_curve = SubResource("CurveTexture_jnxu3")
+emission_curve = SubResource("CurveTexture_arxl7")
+hue_variation_min = -0.09000002
+hue_variation_max = 0.089999974
+
+[sub_resource type="GDScript" id="GDScript_3iyh1"]
+script/source = "extends GPUParticles2D
+
+
+
+func _on_finished() -> void:
+	queue_free()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctxw3"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mu8l"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dugxr"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf31r"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iyh1"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydx8i"]
+atlas = ExtResource("3_ctxw3")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15g6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctxw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mu8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dugxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf31r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iyh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydx8i")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_0hti2"]
+script/source = "extends AnimatedSprite2D
+
+
+func _on_animation_finished() -> void:
+	queue_free()
+"
+
+[node name="ExplosiveBlock" unique_id=861528389 instance=ExtResource("1_08ago")]
+script = ExtResource("2_ctxw3")
+knockback_strenght = 3200.0
+
+[node name="BaseSprite" parent="." index="1" unique_id=224091359]
+z_index = 3
+texture = SubResource("AtlasTexture_68lym")
+
+[node name="GrassSprite" parent="." index="2" unique_id=478690904]
+visible = false
+texture = SubResource("AtlasTexture_k2b56")
+
+[node name="BreakParticles" parent="." index="3" unique_id=783161819]
+texture = SubResource("GradientTexture2D_pj6s8")
+
+[node name="ExplosionArea" type="Area2D" parent="." index="4" unique_id=132036440]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea" index="0" unique_id=1903992724]
+shape = SubResource("CircleShape2D_15g6r")
+
+[node name="SmokeParticles" type="GPUParticles2D" parent="." index="5" unique_id=1564596858]
+unique_name_in_owner = true
+texture_filter = 1
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_ph2to")
+lifetime = 1.3
+one_shot = true
+explosiveness = 0.84
+process_material = SubResource("ParticleProcessMaterial_0hti2")
+script = SubResource("GDScript_tmgon")
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="." index="6" unique_id=406470709]
+unique_name_in_owner = true
+texture_filter = 1
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_0hti2")
+lifetime = 1.2
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_15g6r")
+script = SubResource("GDScript_3iyh1")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="7" unique_id=1688690992]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_15g6r")
+frame = 5
+frame_progress = 1.0
+script = SubResource("GDScript_0hti2")
+
+[connection signal="finished" from="SmokeParticles" to="SmokeParticles" method="_on_finished"]
+[connection signal="finished" from="ExplosionParticles" to="ExplosionParticles" method="_on_finished"]
+[connection signal="animation_finished" from="AnimatedSprite" to="AnimatedSprite" method="_on_animation_finished"]
