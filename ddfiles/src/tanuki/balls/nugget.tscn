@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b4p5utywe1cct"]
+
+[ext_resource type="Texture2D" uid="uid://w6abm3q24prb" path="res://assets/textures/balls_placeholder.png" id="1_xkf7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_536hn"]
+
+[node name="Nugget" type="RigidBody2D" unique_id=789327828]
+collision_layer = 4
+collision_mask = 5
+mass = 0.05
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054495386]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_536hn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218413145]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_xkf7d")
