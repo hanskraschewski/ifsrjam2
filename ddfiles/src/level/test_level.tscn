@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://dnm5trwu856p5"]
 
+[ext_resource type="Script" uid="uid://bfy53caqtwgag" path="res://src/level/cam.gd" id="1_go26d"]
 [ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_pcf1f"]
 [ext_resource type="PackedScene" uid="uid://nwgo7lbj7j83" path="res://src/blocks/gold_block.tscn" id="2_5ipog"]
 [ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_bq0i6"]
 [ext_resource type="Script" uid="uid://2x86f1fv013m" path="res://src/level/block_map.gd" id="2_wfa51"]
 [ext_resource type="PackedScene" uid="uid://c1yii3o40178g" path="res://src/blocks/explosive_block.tscn" id="3_68lym"]
 [ext_resource type="PackedScene" uid="uid://cu68afo8pc1ba" path="res://src/blocks/skull_block.tscn" id="4_8wdye"]
-[ext_resource type="Script" uid="uid://dj6qbo38tmmoa" path="res://src/shake.gd" id="5_88en4"]
 [ext_resource type="PackedScene" uid="uid://b50yhkvws4q74" path="res://src/blocks/spike_block.tscn" id="5_go26d"]
+[ext_resource type="PackedScene" uid="uid://dym65c38kaqvm" path="res://src/level/level_background.tscn" id="9_rc23k"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mflhi"]
 scenes/1/scene = ExtResource("1_pcf1f")
@@ -22,6 +23,13 @@ sources/0 = SubResource("TileSetScenesCollectionSource_mflhi")
 
 [node name="TestLevel" type="Node2D" unique_id=1882760823]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=516488156 groups=["Camera"]]
+position = Vector2(-2, 33)
+limit_left = 0
+limit_right = 0
+position_smoothing_enabled = true
+script = ExtResource("1_go26d")
+
 [node name="BlockMap" type="TileMapLayer" parent="." unique_id=257629081]
 tile_set = SubResource("TileSet_15g6r")
 script = ExtResource("2_wfa51")
@@ -34,9 +42,4 @@ prob_gold = 0.015
 [node name="Tanuki" parent="." unique_id=1317343491 instance=ExtResource("2_bq0i6")]
 position = Vector2(0, -64)
 
-[node name="Camera2D" type="Camera2D" parent="Tanuki" unique_id=516488156 groups=["Camera"]]
-position = Vector2(-2, 97)
-limit_left = 0
-limit_right = 0
-position_smoothing_enabled = true
-script = ExtResource("5_88en4")
+[node name="level" parent="." unique_id=786614293 instance=ExtResource("9_rc23k")]
