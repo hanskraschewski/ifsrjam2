@@ -12,7 +12,12 @@ extends CanvasLayer
 @onready var tnt_up_label: Label = %TntUpLabel
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var focus_window: CanvasLayer = %FocusWindow
 
+
+func _ready() -> void:
+	death_screen.hide()
+	shop.hide()
 
 
 func show_death_screen() -> void:
@@ -29,8 +34,9 @@ func show_shop() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_game"):
-		if shop.visible:
-			shop.hide()
+		#if shop.visible:
+			#shop.hide()
+			#Globals.player.dead = false
 		
 		if death_screen.visible:
 			death_screen.hide()
@@ -56,3 +62,10 @@ func _on_tnt_up_button_pressed() -> void:
 
 func _on_balls_up_button_pressed() -> void:
 	print("TODO")
+
+
+func toggle_focus(to: bool) -> void:
+	if to:
+		focus_window.focus()
+	else:
+		focus_window.defocus()

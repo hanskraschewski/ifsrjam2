@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b2vcgyiskr30t" path="res://assets/textures/InGameUI/BallExpansion.png" id="6_751uk"]
 [ext_resource type="Texture2D" uid="uid://rvhl1v7ha5ns" path="res://assets/textures/InGameUI/PriceTag.png" id="7_w067o"]
 [ext_resource type="Texture2D" uid="uid://dm3ki5yxiv5oa" path="res://assets/textures/InGameUI/MoreCiggies.png" id="8_je3ri"]
+[ext_resource type="PackedScene" uid="uid://c4xuf7f1bo2am" path="res://src/ui/AudioSettings.tscn" id="9_751uk"]
+[ext_resource type="PackedScene" uid="uid://cpehf5vapuscc" path="res://src/ui/FocusWindow.tscn" id="10_w067o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwgqd"]
 texture = ExtResource("5_yy3iv")
@@ -291,6 +293,11 @@ text = "return"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1237605132]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_w067o")
+
+[node name="AudioSettings" parent="." unique_id=1254508680 instance=ExtResource("9_751uk")]
+
+[node name="FocusWindow" parent="." unique_id=1066030656 instance=ExtResource("10_w067o")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer/BallsUPButton" to="." method="_on_balls_up_button_pressed"]
 [connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/TntUpButton" to="." method="_on_tnt_up_button_pressed"]

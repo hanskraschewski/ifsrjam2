@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://waa5opcvtu4u" path="res://assets/textures/InGameUI/SFX.png" id="7_vimub"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1jid"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 texture = ExtResource("2_cgxm6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nuo5q"]
@@ -75,6 +79,17 @@ region = Rect2(21, 0, 21, 15)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vimub"]
 texture = SubResource("AtlasTexture_uqvr7")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x8jl4"]
+load_path = "res://.godot/imported/MenuCross.png-c0f36dcfa0414caf6664ee3c1ff55668.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vimub"]
+atlas = SubResource("CompressedTexture2D_x8jl4")
+region = Rect2(21, 0, 21, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqvr7"]
+texture = SubResource("AtlasTexture_vimub")
+modulate_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_536hn"]
 streams_count = 3
@@ -169,19 +184,20 @@ text = "Lofi Mode"
 
 [node name="ReturnButton" type="Button" parent="PanelContainer/VBoxContainer3" unique_id=376582484]
 process_mode = 3
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_3sk7y")
 theme_override_styles/normal = SubResource("StyleBoxTexture_nelt5")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vimub")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uqvr7")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2104322220]
 stream = SubResource("AudioStreamRandomizer_536hn")
-bus = &"Music"
 
 [node name="LofiPlayer" type="AudioStreamPlayer2D" parent="." unique_id=647833400]
 stream = ExtResource("6_7s50p")
-bus = &"Music"
 
 [connection signal="value_changed" from="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer3/HBoxContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

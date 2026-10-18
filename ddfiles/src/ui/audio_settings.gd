@@ -1,28 +1,28 @@
 extends CanvasLayer
 
-var showing: bool = false
+
 var lofi: bool = false
 var foxus: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$".".hide()
+	self.hide()
 	$MusicPlayer.playing = true
 	$LofiPlayer.playing = false
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
-		if !showing:
-			$".".show()
+		if !self.visible:
+			self.show()
 			get_tree().paused = true
 		else:
-			$".".hide()
+			self.hide()
 			get_tree().paused = false
 
 func _on_music_slider_value_changed(value: float) -> void:
@@ -44,21 +44,16 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 
 func _on_return_button_pressed() -> void:
-	$".".hide()
+	self.hide()
 	get_tree().paused = false
 
 
 func _on_focus_mode_checkbox_toggled(toggled_on: bool) -> void:
-	if %FocusModeCheckbox.button_pressed:
-		#TODO: show focus gameplay
-		pass
-	else:	
-		#TODO: hide focus gameplay
-		pass
+	get_parent().toggle_focus(toggled_on)
 
 
 
-func _on_lofi_mode_checkbox_toggled(toggled_on: bool) -> void:
+func _on_lofi_mode_checkbox_toggled(_toggled_on: bool) -> void:
 	$MusicPlayer.playing = !%LofiModeCheckbox.button_pressed
 	$LofiPlayer.playing = %LofiModeCheckbox.button_pressed
 
