@@ -41,7 +41,6 @@ func _process(delta: float) -> void:
 		bg[bg_begin].position.y = bg_begin_y + 720
 		bg_begin_y += 360
 		bg_begin = (bg_begin + 1) % 3
-		print(bg_begin_y)
 	# shift up
 	elif position.y - bg_begin_y < 360 && bg_begin_y > 0:
 		bg_begin_y -= 360
