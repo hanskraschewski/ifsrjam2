@@ -8,8 +8,13 @@ script = ExtResource("1_s6rvm")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1731965682]
 unique_name_in_owner = true
-offset_left = 480.0
-offset_top = 260.0
-offset_right = 640.0
-offset_bottom = 360.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
 stream = ExtResource("1_8f35w")
