@@ -9,82 +9,52 @@
 
 [node name="layer1" type="Node2D" parent="." unique_id=576461274]
 
-[node name="Parallax1" type="Parallax2D" parent="layer1" unique_id=1116836882]
-scroll_scale = Vector2(0, 1)
-repeat_size = Vector2(0, 360)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
+[node name="Parallax3" type="Parallax2D" parent="layer1" unique_id=116558148]
+scroll_scale = Vector2(0, 0.7)
+scroll_offset = Vector2(0, 180)
+limit_begin = Vector2(-10000000, -180)
 
-[node name="Sprite2D" type="Sprite2D" parent="layer1/Parallax1" unique_id=706748070]
-texture = ExtResource("1_j5mur")
-offset = Vector2(0, 180)
+[node name="Sprite2D" type="Sprite2D" parent="layer1/Parallax3" unique_id=1830871871]
+z_index = -1
+texture_repeat = 2
+texture = ExtResource("3_x5kft")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 1000000000)
 
 [node name="Parallax2" type="Parallax2D" parent="layer1" unique_id=1391019571]
 scroll_scale = Vector2(0, 0.8)
-repeat_size = Vector2(0, 360)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
+scroll_offset = Vector2(0, 240)
+limit_begin = Vector2(-10000000, -180)
 
 [node name="Sprite2D" type="Sprite2D" parent="layer1/Parallax2" unique_id=727941094]
+z_index = -1
+texture_repeat = 2
 texture = ExtResource("2_q11d8")
-offset = Vector2(0, 180)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 10000000000)
 
-[node name="Parallax3" type="Parallax2D" parent="layer1" unique_id=116558148]
-scroll_scale = Vector2(0, 0.6)
-repeat_size = Vector2(0, 360)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
+[node name="Parallax1" type="Parallax2D" parent="layer1" unique_id=1116836882]
+scroll_scale = Vector2(0, 0.9)
+scroll_offset = Vector2(0, 90)
+limit_begin = Vector2(-10000000, -200)
 
-[node name="Sprite2D" type="Sprite2D" parent="layer1/Parallax3" unique_id=1830871871]
-texture = ExtResource("3_x5kft")
-offset = Vector2(0, 180)
+[node name="Sprite2D" type="Sprite2D" parent="layer1/Parallax1" unique_id=706748070]
+z_index = -1
+texture_repeat = 2
+texture = ExtResource("1_j5mur")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 100000000)
 
 [node name="wall" type="Parallax2D" parent="layer1" unique_id=1612201092]
 scroll_scale = Vector2(0, 1)
-repeat_size = Vector2(0, 360)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="layer1/wall" unique_id=1800778798]
+z_index = -1
+texture_repeat = 2
 texture = ExtResource("4_p7rar")
-offset = Vector2(0, 180)
-
-[node name="layer2" type="Node2D" parent="." unique_id=1849611575]
-visible = false
-position = Vector2(0, 360)
-
-[node name="Parallax1" type="Parallax2D" parent="layer2" unique_id=1918657689]
-scroll_scale = Vector2(0, 1)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
-
-[node name="Sprite2D" type="Sprite2D" parent="layer2/Parallax1" unique_id=414376764]
-texture = ExtResource("1_j5mur")
-offset = Vector2(0, 180)
-
-[node name="Parallax2" type="Parallax2D" parent="layer2" unique_id=919365236]
-scroll_scale = Vector2(0, 0.8)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
-
-[node name="Sprite2D" type="Sprite2D" parent="layer2/Parallax2" unique_id=350958608]
-texture = ExtResource("2_q11d8")
-offset = Vector2(0, 180)
-
-[node name="Parallax3" type="Parallax2D" parent="layer2" unique_id=1105485784]
-scroll_scale = Vector2(0, 0.6)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
-
-[node name="Sprite2D" type="Sprite2D" parent="layer2/Parallax3" unique_id=674894369]
-texture = ExtResource("3_x5kft")
-offset = Vector2(0, 180)
-
-[node name="wall" type="Parallax2D" parent="layer2" unique_id=10553744]
-scroll_scale = Vector2(0, 1)
-limit_begin = Vector2(-10000000, 0)
-follow_viewport = false
-
-[node name="Sprite2D" type="Sprite2D" parent="layer2/wall" unique_id=894245148]
-texture = ExtResource("4_p7rar")
-offset = Vector2(0, 180)
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 100000000)

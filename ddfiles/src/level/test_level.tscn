@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dnm5trwu856p5"]
 
+[ext_resource type="Script" uid="uid://bfy53caqtwgag" path="res://src/level/cam.gd" id="1_go26d"]
 [ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_pcf1f"]
 [ext_resource type="PackedScene" uid="uid://nwgo7lbj7j83" path="res://src/blocks/gold_block.tscn" id="2_5ipog"]
 [ext_resource type="PackedScene" uid="uid://c7qc5msjiu7kg" path="res://src/tanuki/tanuki.tscn" id="2_bq0i6"]
@@ -25,7 +26,6 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_mflhi")
 
 [node name="TestLevel" type="Node2D" unique_id=1882760823]
-
 [node name="Background" type="Node2D" parent="." unique_id=1221151364]
 texture_filter = 1
 

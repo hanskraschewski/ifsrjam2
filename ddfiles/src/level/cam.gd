@@ -12,12 +12,13 @@ var shake: float = 0.0
 var shake_power: int = 2
 
 func _ready() -> void:
-	for i in range(3):
-		var scene = preload("res://src/level/level_background.tscn").instantiate()
-		$"..".add_child.call_deferred(scene)
-		bg.append(scene)
-		bg[i].position.y += 360 * i
-		#bg_end_y = 360 * i
+	#for i in range(3):
+		#var scene = preload("res://src/level/level_background.tscn").instantiate()
+		#get_tree().current_scene.add_child.call_deferred(scene)
+		#get_tree().current_scene.move_child(scene, 0)
+		#bg.append(scene)
+		#bg[i].position.y += 360 * i
+		##bg_end_y = 360 * i
 	pass
 
 
@@ -36,16 +37,16 @@ func _process(delta: float) -> void:
 			#bg[i].position.y = (round(position.y) - (roundi(position.y) % 720) + 720 * (i - 1))
 		#print(bg_begin_y)
 	# shift background down
-	if position.y - bg_begin_y > 720:
-		#print(abs(position.y - bg[bg_begin].position.y))
-		bg[bg_begin].position.y = bg_begin_y + 720
-		bg_begin_y += 360
-		bg_begin = (bg_begin + 1) % 3
-	# shift up
-	elif position.y - bg_begin_y < 360 && bg_begin_y > 0:
-		bg_begin_y -= 360
-		bg[(bg_begin + 2) % 3].position.y = bg_begin_y
-		bg_begin = (bg_begin - 1) % 3
+	#if position.y - bg_begin_y > 720:
+		##print(abs(position.y - bg[bg_begin].position.y))
+		#bg[bg_begin].position.y = bg_begin_y + 720
+		#bg_begin_y += 360
+		#bg_begin = (bg_begin + 1) % 3
+	## shift up
+	#elif position.y - bg_begin_y < 360 && bg_begin_y > 0:
+		#bg_begin_y -= 360
+		#bg[(bg_begin + 2) % 3].position.y = bg_begin_y
+		#bg_begin = (bg_begin - 1) % 3
 
 
 func add_shake(amount: float = 0.8) -> void:
