@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://cu68afo8pc1ba"]
+
+[ext_resource type="PackedScene" uid="uid://ddy1by3r6xfna" path="res://src/blocks/block.tscn" id="1_vsds1"]
+[ext_resource type="Script" uid="uid://bgoc3vhpy1s0u" path="res://src/blocks/skull_block.gd" id="2_0ae4b"]
+[ext_resource type="Texture2D" uid="uid://6si2tmssx3ka" path="res://assets/textures/enemies/SkullBlock.png" id="4_0ae4b"]
+[ext_resource type="Texture2D" uid="uid://dhgnfqabl2584" path="res://assets/textures/InGameUI/coins.png" id="4_ip6xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doigh"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbqi1"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_lkal8"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5060241, 1)
+colors = PackedColorArray(0.16078432, 0.19215687, 0.30980393, 1, 0.27058825, 0.30588236, 0.42745098, 1, 0.27058825, 0.30588236, 0.42745098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v4wo7"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_lkal8")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.3, 0.3)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ae4b"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip6xb"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkal8"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4wo7"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yr34"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(1152, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivwaf"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(1248, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2l6x"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usynq"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0sw3"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dcuq"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85bxw"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfygs"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox7si"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3foh"]
+atlas = ExtResource("4_0ae4b")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_536hn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ae4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip6xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkal8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4wo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yr34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivwaf")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2l6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usynq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0sw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dcuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85bxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfygs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox7si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3foh")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ua7x"]
+atlas = ExtResource("4_ip6xb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Curve" id="Curve_lkal8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4680851, 0.6516854), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_v4wo7"]
+offsets = PackedFloat32Array(0, 0.9197531)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GDScript" id="GDScript_8yr34"]
+script/source = "extends CPUParticles2D
+
+
+
+func _on_finished() -> void:
+	queue_free()
+"
+
+[node name="SkullBlock" unique_id=861528389 instance=ExtResource("1_vsds1")]
+script = ExtResource("2_0ae4b")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1374159385]
+shape = SubResource("RectangleShape2D_doigh")
+
+[node name="BaseSprite" parent="." index="1" unique_id=224091359]
+visible = false
+texture = SubResource("AtlasTexture_lbqi1")
+
+[node name="GrassSprite" parent="." index="2" unique_id=478690904]
+visible = false
+texture = null
+
+[node name="BreakParticles" parent="." index="3" unique_id=783161819]
+texture = SubResource("GradientTexture2D_v4wo7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4" unique_id=1413961318]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_536hn")
+animation = &"idle"
+
+[node name="IdleTimer" type="Timer" parent="." index="5" unique_id=936572377]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="GoldParticles" type="CPUParticles2D" parent="." index="6" unique_id=1111053688]
+unique_name_in_owner = true
+z_index = 1
+texture_filter = 1
+emitting = false
+amount = 12
+texture = SubResource("AtlasTexture_7ua7x")
+lifetime = 0.56
+one_shot = true
+explosiveness = 0.85
+emission_shape = 1
+emission_sphere_radius = 13.67
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angle_max = 360.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_lkal8")
+color_ramp = SubResource("Gradient_v4wo7")
+script = SubResource("GDScript_8yr34")
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="finished" from="GoldParticles" to="GoldParticles" method="_on_finished"]

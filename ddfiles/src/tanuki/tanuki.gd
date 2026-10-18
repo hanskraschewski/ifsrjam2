@@ -82,12 +82,18 @@ func move(dir: int) -> void:
 
 
 func _on_block_detection_area_body_entered(body: Node2D) -> void:
-	if body is Block:
-		if 1: #TODO: access blocks needed stunt sequence
-			$AnimatedSprite2D.play("impact")
-			velocity.y = 0
-			body.break_block()
-			velocity.y = JUMP_VELOCITY
-		else:
-			velocity.y = JUMP_VELOCITY
-	input_buffer.clear()
+	if body is Block and body is not SkullBlock:
+		$AnimatedSprite2D.play("impact")
+		velocity.y = 0
+		body.break_block()
+		velocity.y = JUMP_VELOCITY
+	else:
+		velocity.y = JUMP_VELOCITY
+
+
+func _on_headbutt_area_body_entered(body: Node2D) -> void:
+	if body is SkullBlock or body is ExplosiveBlock:
+		$AnimatedSprite2D.play("impact")
+		velocity.y = 0
+		body.break_block()
+		velocity.y = -JUMP_VELOCITY
